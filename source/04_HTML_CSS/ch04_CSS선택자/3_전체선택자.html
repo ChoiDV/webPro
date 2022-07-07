@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <style>
+    * { /*전체 선택자 : 모든 태그에 적용 : 전체 페이지 디자인 초기화 용도 */
+      margin:0; /* 밖여백 */
+      padding:0; /* 안여백 */
+      /* 페이지 내 기본 폰트 설정 */
+      color : saddlebrown;
+    }
+    header, nav, section, footer{
+      width:500px; /* 가로사이즈*/
+      margin: 10px auto; /* 상, 우, 하, 좌(시계방향)  가운데로 */
+      border:1px solid gray;
+    }
+    header h1 {text-align:center;}
+    /* 수직 li를 수평 li로 */ 
+    nav ul {overflow:hidden; } /*수평으로 하고 픈 태그의 부모단 */
+      nav ul li {
+        float: left; /* block타입태그를 수평으로 배치 */
+        list-style: none;
+        /*padding : 10px 31px; */ /* 10px 20px 10px 20px 상우하좌 안 여백*/
+        width:125px;
+        text-align:center;
+      } 
+    section{
+      clear:both; /* overflow : hidden; 을 잘 했으면 생략하기도 함 */
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OO 주식회사</h1>
+  </header>
+  <nav>
+    <ul>
+      <li>회사소개</li>
+      <li>서비스</li>
+      <li>고객센터</li>
+      <li>공지사항</li>
+    </ul>
+  </nav>
+  <section>
+    <p>
+      뛰노는 청춘을 것은 위하여 오직 이것이다. 너의 할지니, 위하여, 있다. 피는 우리는 내는 같지 오아이스도 것이다. 타오르고 우리의 커다란 뿐이다. 천자만홍이 구하지 하는 봄바람이다. 천고에 아름답고 그들에게 가는 대고, 내려온 눈에 사막이다. 사라지지 장식하는 이것은 위하여, 뜨고, 봄날의 피가 원대하고, 듣는다. 실로 위하여, 있으며, 물방아 커다란 할지니, 부패뿐이다. 무엇을 따뜻한 그들은 이성은 생생하며, 찬미를 교향악이다. 우리 구할 끝에 긴지라 있음으로써 하였으며, 우리의 쓸쓸하랴?
+    </p>
+  </section>
+  <footer>
+    <p>서울시 강남구 강남대로94길 13 좋은빌딩 402호</p>
+  </footer>
+</body>
+</html>

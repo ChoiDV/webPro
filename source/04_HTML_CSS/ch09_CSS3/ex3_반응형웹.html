@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0"/>
+  <title></title>
+  <style>
+    /* 페이지 초기화 */
+    * {margin:0; padding:0;}
+    a {text-decoration:none; color:black; display:block; font-weight:bold; font-size:1.2em;}
+    li{list-style:none;}
+    @media screen and (max-width:1000px){/* 스마트폰 화면(1000px이하) : 메뉴 1,3,5개 */
+      #wrap{ background-color:pink; margin:3px;}
+      #wrap #nav ul li:nth-child(2),
+      #wrap #nav ul li:nth-child(4){display:none;}
+      #wrap #nav ul li{width:33.3333%;}
+      #wrap #footer {background-color:lightpink;}
+    }    
+    @media screen and (min-width:2001px){/* 정임씨 테블릿 화면(2001px이상) : 메뉴1,2,3,5개 */
+      #wrap {background-color:aqua; margin:3px;}
+      #wrap #nav ul li:nth-child(4) {display:none;}
+      #wrap #nav ul li{
+        width:25%;
+      }
+      #wrap #footer {background-color:lightgray;}
+    }
+    @media screen and (min-width:1001px) and (max-width:2000px){ /* pc 화면 (1001~2000px) : 5개*/
+      #wrap{ width:800px; margin:3px auto;}
+      #wrap #nav ul li{width:20%;}
+    }
+    /* 공통 부분 */
+    #wrap { border:1px solid gray;}
+    #wrap #header{height:100px; line-height:100px; text-align:center;}
+    #wrap #nav ul{overflow:hidden;}
+    #wrap #nav ul li{float:left; height:50px; line-height:50px; text-align:center;
+                     border:1px solid gray;
+                     box-sizing:border-box;
+    }
+    #wrap #content {padding:10px;}
+    #wrap #footer{
+      height:100px; line-height:100px; text-align:center;
+      font-size:1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header"><h1>웹표준 반응형</h1></div>
+    <div id="nav">
+      <ul>
+        <li><a href="#1">menu1</a></li>
+        <li><a href="#2">menu2</a></li>
+        <li><a href="#3">menu3</a></li>
+        <li><a href="#4">menu4</a></li>
+        <li><a href="#5">menu5</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <h2>What is Lorem Ipsum?</h2>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div><!-- #content -->
+    <div id="footer">홍길동 주식회사</div>
+  </div><!-- #wrap -->  
+</body>
+</html>

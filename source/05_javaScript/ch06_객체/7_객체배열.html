@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script>
+    var students = [{ name: '홍길동', kor: 99, mat: 90, eng: 98, sci: 100 },
+                    { name: '김길동', kor: 100, mat: 90, eng: 98, sci: 100 }];
+    students.push({ name: '김길동', kor: 100, mat: 90, eng: 98, sci: 100 });
+    students.push({ name: '신길동', kor: 80, mat: 91, eng: 98, sci: 88 });
+    students.push({ name: '마유동', kor: 90, mat: 92, eng: 99, sci: 100 });
+    for (var idx in students) { // idx가 0~4
+      students[idx].getSum = function () {
+        return this.kor + this.mat + this.eng + this.sci;
+      };
+      students[idx].getAvg = function () {
+        return this.getSum() / 4;
+      };
+      students[idx].toString = function () {
+        var output = '';
+        for (var key in this) {
+          if (key != 'getSum' && key != 'getAvg' && key != 'toString') {
+            output += key + ':' + this[key] + '<br>';
+          } else if (key == 'getSum' || key == 'getAvg') {
+            output += key.substring(3).toUpperCase() + ':' + this[key]() + '<br>';
+          } // if
+        }//for
+        return output;
+      };
+    }// for
+    // 1. students 배열 출력 : 일반for문
+    var output = '';
+    for (var idx = 0; idx < students.length; idx++) {
+      output += idx + '번째' + '<br>';
+      output += students[idx];
+    }
+    document.write(output);
+    // alert(replaceAll(output, '<br>', '\n'));
+    // alert(output.replaceAll('<br>', '\n'));
+    // 2. students 배열 출력 : for-in문
+    document.write('<h4>for-in문 이용</h4>');
+    var output = '';
+    for (var idx in students) {
+      output += idx + '번째' + '<br>';
+      output += students[idx];
+    }
+    document.write(output);
+    // 3. students 배열 출력 : forEach()함수 이용
+    document.write('<h4>forEach()함수 이용</h4>');
+    students.forEach(function (data, idx) {
+      document.write(idx + '번째<br>');
+      document.write(data +'<hr>');
+    });
+
+
+    function replaceAll(str, oldStr, newStr) { // str내의 oldStr부분을 newStr로 모두 교체
+      /*str = "aaaaa<br>bbbbb<br>cccc";
+    splitStr = ['aaaaa', 'bbbbb', 'cccc'];
+    joinStr = 'aaaaaaa\nbbbbbbbb\nccccccc';*/
+      var splitStr = str.split(oldStr);
+      var joinStr = splitStr.join(newStr);
+      return joinStr;
+      // return str.split(oldStr).join(newStr);
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>
