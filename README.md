@@ -11,4 +11,4 @@
 - 오픈 Library : jQuery v3.4.1, Daum postcode API,SweetAlert API <br>
 - 프로젝트 소개 : 도서 대출 및 반납, 자리예약, 도서추천 등의 기능을 구현하였다. <br>
 
-![LAS](https://user-images.githubusercontent.com/56239469/81254784-12395580-9067-11ea-98dc-180c596a4e7c.png)
+![LAS]()
