@@ -24,31 +24,31 @@
 
 
 ### 작업분할 구조도
-<br>
+
 ![1](https://user-images.githubusercontent.com/35479999/177793931-c8bc0ba4-75fe-4725-acd2-d281ec59e819.JPG)
 
 ### Gantt chart
-<br>
+
 ![2](https://user-images.githubusercontent.com/35479999/177793982-4e696ce8-bac9-40d2-95e3-7ad655ed9333.JPG)
 
 ### Usecase Diagram
-<br>
+
 ![3](https://user-images.githubusercontent.com/35479999/177793995-6b18a345-8f26-4aa4-b893-bd9e5e13963a.JPG)
 
 ### eXERD Diagram
-<br>
+
 ![4](https://user-images.githubusercontent.com/35479999/177793997-b2b4875e-59a9-4587-8a08-99bcb9b0dc40.JPG)
 
 ### 기능정의서
-<br>
+
 ![5](https://user-images.githubusercontent.com/35479999/177793998-342b9da1-3d8f-474e-820d-16ac4e47aa25.JPG)
 
 ### Project Source Explorer
-<br>
+
 ![6](https://user-images.githubusercontent.com/35479999/177794002-897d8c0c-18bd-4417-9836-0a7042ce48dd.JPG)
 
 ### 실행화면
-<br>
+
 ![7](https://user-images.githubusercontent.com/35479999/177794006-76262450-00cf-4d2a-a4f6-b3016ba39cbe.JPG)
 
 ![8](https://user-images.githubusercontent.com/35479999/177794009-f08bb678-8079-4ed2-9f95-a0e8703489a1.JPG)
