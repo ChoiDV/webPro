@@ -11,44 +11,48 @@
 - 오픈 Library : jQuery v3.4.1, Daum postcode API,SweetAlert API <br>
 - 프로젝트 소개 : 도서 대출 및 반납, 자리예약, 도서추천 등의 기능을 구현하였다. <br>
 
-![LAS](https://user-images.githubusercontent.com/35479999/177793919-89d56c71-0b11-4a41-bfa4-edb5a658f146.PNG)
+![0](https://user-images.githubusercontent.com/35479999/177796929-dcf6851a-055b-43ef-899a-8a5e3e15e54a.PNG)
 
 ## 목차
-[1. 작업분할 구조도](https://user-images.githubusercontent.com/35479999/177793931-c8bc0ba4-75fe-4725-acd2-d281ec59e819.JPG)<br>
-[2. Gantt Chart](https://user-images.githubusercontent.com/35479999/177793982-4e696ce8-bac9-40d2-95e3-7ad655ed9333.JPG)<br>
-[3. Usecase Diagram](https://user-images.githubusercontent.com/35479999/177793995-6b18a345-8f26-4aa4-b893-bd9e5e13963a.JPG)<br>
-[4. eXERD Diagram](https://user-images.githubusercontent.com/35479999/177793997-b2b4875e-59a9-4587-8a08-99bcb9b0dc40.JPG)<br>
-[5. 기능정의서](https://user-images.githubusercontent.com/35479999/177793998-342b9da1-3d8f-474e-820d-16ac4e47aa25.JPG)<br>
-[6. Project Source Explorer](https://user-images.githubusercontent.com/35479999/177794002-897d8c0c-18bd-4417-9836-0a7042ce48dd.JPG)<br>
-[7. 실행화면](https://user-images.githubusercontent.com/35479999/177794006-76262450-00cf-4d2a-a4f6-b3016ba39cbe.JPG)<br>
+[1. 작업분할 구조도](https://user-images.githubusercontent.com/35479999/177796900-a5d6c140-b034-4475-be5c-b19280fa8c69.JPG)<br>
+[2. Gantt Chart](https://user-images.githubusercontent.com/35479999/177796906-56d5773c-ffb8-4344-ab85-7cc1a51131dd.JPG)<br>
+[3. Usecase Diagram](https://user-images.githubusercontent.com/35479999/177796912-c0d57115-d478-4927-b38e-f4f2397c8716.JPG)<br>
+[4. eXERD Diagram](https://user-images.githubusercontent.com/35479999/177796914-0e971e2d-f6cf-4d38-accc-d866abd2d4a7.JPG)<br>
+[5. 기능정의서](https://user-images.githubusercontent.com/35479999/177796918-c84791c9-4069-40ac-9a30-edd1265ab0b3.JPG)<br>
+[6. Project Source Explorer](https://user-images.githubusercontent.com/35479999/177796922-361f7960-a246-4b55-bd5a-104a65354734.JPG)<br>
+[7. 실행화면](https://user-images.githubusercontent.com/35479999/177796924-a8d6d702-fddf-479d-a280-4e28f2aa101a.JPG)<br>
 
 
 ### 작업분할 구조도
 
-![1](https://user-images.githubusercontent.com/35479999/177793931-c8bc0ba4-75fe-4725-acd2-d281ec59e819.JPG)
+![1](https://user-images.githubusercontent.com/35479999/177796900-a5d6c140-b034-4475-be5c-b19280fa8c69.JPG)
+
 
 ### Gantt chart
 
-![2](https://user-images.githubusercontent.com/35479999/177793982-4e696ce8-bac9-40d2-95e3-7ad655ed9333.JPG)
+![2](https://user-images.githubusercontent.com/35479999/177796906-56d5773c-ffb8-4344-ab85-7cc1a51131dd.JPG)
 
 ### Usecase Diagram
 
-![3](https://user-images.githubusercontent.com/35479999/177793995-6b18a345-8f26-4aa4-b893-bd9e5e13963a.JPG)
+![3](https://user-images.githubusercontent.com/35479999/177796912-c0d57115-d478-4927-b38e-f4f2397c8716.JPG)
 
 ### eXERD Diagram
 
-![4](https://user-images.githubusercontent.com/35479999/177793997-b2b4875e-59a9-4587-8a08-99bcb9b0dc40.JPG)
+![4](https://user-images.githubusercontent.com/35479999/177796914-0e971e2d-f6cf-4d38-accc-d866abd2d4a7.JPG)
+
 
 ### 기능정의서
 
-![5](https://user-images.githubusercontent.com/35479999/177793998-342b9da1-3d8f-474e-820d-16ac4e47aa25.JPG)
+![5](https://user-images.githubusercontent.com/35479999/177796918-c84791c9-4069-40ac-9a30-edd1265ab0b3.JPG)
+
 
 ### Project Source Explorer
 
-![6](https://user-images.githubusercontent.com/35479999/177794002-897d8c0c-18bd-4417-9836-0a7042ce48dd.JPG)
+![6](https://user-images.githubusercontent.com/35479999/177796922-361f7960-a246-4b55-bd5a-104a65354734.JPG)
+
 
 ### 실행화면
 
-![7](https://user-images.githubusercontent.com/35479999/177794006-76262450-00cf-4d2a-a4f6-b3016ba39cbe.JPG)
+![7](https://user-images.githubusercontent.com/35479999/177796924-a8d6d702-fddf-479d-a280-4e28f2aa101a.JPG)
 
-![8](https://user-images.githubusercontent.com/35479999/177794009-f08bb678-8079-4ed2-9f95-a0e8703489a1.JPG)
+![8](https://user-images.githubusercontent.com/35479999/177796927-912fa321-4b33-44a3-9664-3b042a230d5d.JPG)
