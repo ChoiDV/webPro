@@ -1,10 +1,6 @@
 package com.lec.snedit.dto;
 import java.sql.Timestamp;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 public class ReplyDto {
 	private int rno;
 	private int bno;

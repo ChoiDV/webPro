@@ -17,7 +17,7 @@
 	<h2>회원가입한 회원의 주소를 마크함</h2>
 	<hr>
 	
-	<div id="map" style="width:100%;height:350px;"></div>
+	<div id="map" style="width:900%;height:350px;margin:0 auto;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4c3b3a0a6b54af370ecb2b23f6ddcdf0&libraries=services"></script>
 	<script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
