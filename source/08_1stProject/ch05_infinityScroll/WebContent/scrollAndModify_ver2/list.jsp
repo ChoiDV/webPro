@@ -12,6 +12,9 @@
 	</style>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
+		
+	</script>
+	<script>
 		var pageNum;
 		$(document).ready(function(){
 			var pageCnt = Number('${pageCnt}');
