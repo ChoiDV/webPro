@@ -94,4 +94,9 @@ SELECT member.CUSTNO, CUSTNAME, GRADENAME, PRICE
 	from MEMBER_TBL_02 member, MEMBERLEVEL ml,
 		(SELECT CUSTNO, SUM(PRICE) price FROM MENEY_TBL_02 group BY CUSTNO) sales
 	where member.custno = sales.custno and ml.grade=member.grade
-	order by price desc;
+	order by price desc; 
+
+SELECT CUSTNO, CUSTNAME, GRADENAME, (select sum(price) from MENEY_TBL_02 where custno=member.custno) price
+	from MEMBER_TBL_02 member, MEMBERLEVEL ml
+	where ml.grade=member.grade and (select sum(price) from MENEY_TBL_02 where custno=member.custno) is not null
+	order by price desc; -- 이 query도 되나 위에 것을 씀

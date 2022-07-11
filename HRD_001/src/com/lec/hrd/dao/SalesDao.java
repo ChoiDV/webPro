@@ -17,7 +17,7 @@ public class SalesDao {
 				"scott","tiger");
 		return conn;
 	}
-	public ArrayList<SalesDto> salesList(){
+	public ArrayList<SalesDto> salesList(){ // 회원매출목록
 		ArrayList<SalesDto> dtos = new ArrayList<SalesDto>();
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;

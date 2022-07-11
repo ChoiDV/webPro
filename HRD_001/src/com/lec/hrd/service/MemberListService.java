@@ -11,7 +11,6 @@ public class MemberListService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		MemberDao memberDao = new MemberDao();
 		request.setAttribute("memberList", memberDao.memberList());
-
 	}
 
 }

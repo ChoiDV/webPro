@@ -7,7 +7,6 @@ import com.lec.hrd.dao.MemberDao;
 import com.lec.hrd.dto.MemberDto;
 
 public class UpdateService implements Service {
-
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		int custno = Integer.parseInt(request.getParameter("custno"));

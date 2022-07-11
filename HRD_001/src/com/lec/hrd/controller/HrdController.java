@@ -32,29 +32,29 @@ public class HrdController extends HttpServlet {
 		String com     = uri.substring(conPath.length()); // 들어온 요청
 		String viewPage = null;
 		Service service = null;
-		if(com.equals("/main.do")) {
+		if(com.equals("/main.do")) { // 첫화면
 			viewPage = "index.jsp";
-		}else if(com.equals("/joinView.do")) {
+		}else if(com.equals("/joinView.do")) { // 회원등록 페이지
 			service = new GetCustnoService();
 			service.execute(request, response);
 			viewPage = "join.jsp";
-		}else if(com.equals("/join.do")) {
+		}else if(com.equals("/join.do")) { // 회원등록 처리
 			service = new JoinService();
 			service.execute(request, response);
 			viewPage = "memberList.do";
-		}else if(com.equals("/memberList.do")) {
+		}else if(com.equals("/memberList.do")) { // 회원목록
 			service = new MemberListService();
 			service.execute(request, response);
 			viewPage = "memberList.jsp";
-		}else if(com.equals("/getMember.do")) {
+		}else if(com.equals("/getMember.do")) { // 특정 회원번호로 dto가져오기(조회)
 			service = new GetMemberService();
 			service.execute(request, response);
 			viewPage = "update.jsp";
-		}else if(com.equals("/update.do")) {
+		}else if(com.equals("/update.do")) { // 특정 회원 정보 수정
 			service = new UpdateService();
 			service.execute(request, response);
 			viewPage = "getMember.do";
-		}else if(com.equals("/salesList.do")) {
+		}else if(com.equals("/salesList.do")) { // 회원 매출 목록
 			service = new SallesService();
 			service.execute(request, response);
 			viewPage = "salesList.jsp";

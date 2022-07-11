@@ -13,7 +13,6 @@ public class GetMemberService implements Service {
 		int custno = Integer.parseInt(request.getParameter("custno"));
 		MemberDao memberDao = new MemberDao();
 		MemberDto dto = memberDao.getMember(custno);
-		System.out.println(dto);
 		request.setAttribute("dto", dto);
 	}
 

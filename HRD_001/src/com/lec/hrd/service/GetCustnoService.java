@@ -14,6 +14,6 @@ public class GetCustnoService implements Service {
 		MemberDao memberDao = new MemberDao();
 		request.setAttribute("custno", memberDao.getCustno());
 		Date today = new Date(System.currentTimeMillis());
-		request.setAttribute("today", today);
+		request.setAttribute("today", today); // 오늘
 	}
 }

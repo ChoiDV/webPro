@@ -17,7 +17,7 @@ public class MemberDao {
 				"scott","tiger");
 		return conn;
 	}
-	public int getCustno() {
+	public int getCustno() { // 회원등록시 등록될 회원번호 가져오기
 		int custno = 0;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
@@ -41,7 +41,7 @@ public class MemberDao {
 		}
 		return custno;
 	}
-	public ArrayList<MemberDto> memberList(){
+	public ArrayList<MemberDto> memberList(){ // 회원목록
 		ArrayList<MemberDto> dtos = new ArrayList<MemberDto>();
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
@@ -74,7 +74,7 @@ public class MemberDao {
 		}
 		return dtos;
 	}
-	public int join(MemberDto member) {
+	public int join(MemberDto member) { // 회원등록
 		int result = 0;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
@@ -102,7 +102,7 @@ public class MemberDao {
 		}
 		return result;
 	}
-	public MemberDto getMember(int custno) {
+	public MemberDto getMember(int custno) { // 특정회원 조회
 		MemberDto dto = null;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
@@ -134,7 +134,7 @@ public class MemberDao {
 		}
 		return dto;
 	}
-	public int update(MemberDto member) {
+	public int update(MemberDto member) { // 회원수정
 		int result = 0;
 		Connection        conn  = null;
 		PreparedStatement pstmt = null;
