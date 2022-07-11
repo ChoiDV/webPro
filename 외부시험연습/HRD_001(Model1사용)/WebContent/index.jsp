@@ -9,7 +9,7 @@
 		section{width : 780px ; margin: 0 auto;  
 			border: 1px solid blue;
 			padding:10px;
-			height:300px;
+			height:500px;
 		}
 		section ol { margin-left: 50px;}
 	</style>
