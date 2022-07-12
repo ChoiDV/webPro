@@ -16,4 +16,28 @@
 			<value>7반</value>
 		</constructor-arg>
 	</bean>
+	<bean id="student2" class="com.lec.ch02.ex3_student.Student">
+		<constructor-arg value="성춘향"/>
+		<constructor-arg value="22"/>
+		<constructor-arg value="2학년"/>
+		<constructor-arg value="2반"/>
+	</bean>
+	<bean id="studentInfo" class="com.lec.ch02.ex3_student.StudentInfo">
+		<constructor-arg>
+			<ref bean="student1"/>
+		</constructor-arg>
+	</bean>	
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
