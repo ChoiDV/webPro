@@ -1,5 +1,8 @@
 package com.lec.ch02.ex5_exam;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class ExamConsoleImpl implements ExamConsole {
 	private Exam exam;
 	public void print() {
@@ -7,5 +10,4 @@ public class ExamConsoleImpl implements ExamConsole {
 		System.out.println("총점 : " + exam.total());
 		System.out.printf("평균 : %5.1f", exam.avg());
 	}
-
 }
