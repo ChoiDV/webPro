@@ -1,5 +1,6 @@
 package com.lec.ch02.ex2_bmi;
-
+import lombok.Data;
+@Data
 public class BMICalculator {
 	private double lowWeight;
 	private double normal;
