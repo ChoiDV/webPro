@@ -13,10 +13,10 @@
 	<h3>${greeting }</h3>
 	<hr>
 	<h3>Board 관련 요청 경로</h3>
-	<h4><a href="${conPath }/board/Write">board의 write로 가기</a></h4>
-	<h4><a href="${conPath }/board/bContent">board의 content로 가기</a></h4>
-	<h4><a href="${conPath }/board/bList">board의 list로 가기</a></h4>
-	<h4><a href="${conPath }/board/bReply">board의 reply로 가기</a></h4>
+	<h4><a href="${conPath }/board/write">board의 write로 가기</a></h4>
+	<h4><a href="${conPath }/board/content">board의 content로 가기</a></h4>
+	<h4><a href="${conPath }/board/list">board의 list로 가기</a></h4>
+	<h4><a href="${conPath }/board/reply">board의 reply로 가기</a></h4>
 	<hr>
 	<h3>Member 관련 요청 경로</h3>
 	<p><button onclick="location.href='${conPath}/member?method=join'">회원가입</button></p>
