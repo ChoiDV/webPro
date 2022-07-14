@@ -7,6 +7,7 @@ public class TestMain {
 		Student student = ctx.getBean("student", Student.class);
 		Worker  worker  = ctx.getBean("worker", Worker.class);
 		student.getStudentInfo(); // 핵심기능
+		System.out.println("------------------------------");
 		worker.getWorkerInfo();   // 핵심기능
 	}
 }
