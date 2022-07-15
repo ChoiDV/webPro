@@ -42,14 +42,14 @@ public class MyController {
 			//return "redirect:studentOk.do";
 			return "forward:studentOk.do";
 		}
-		return "redirect:studentNg.do?id="+id;
+		return "redirect:studentNg.do";
 	}
 	@RequestMapping(value="studentOk", method = RequestMethod.GET)
 	public String studentOk() {
 		return "studentOk";
 	}
 	@RequestMapping(value="studentNg", method=RequestMethod.GET)
-	public String studentNg(String id) {
+	public String studentNg() {
 		return "studentNg";
 	}
 }
