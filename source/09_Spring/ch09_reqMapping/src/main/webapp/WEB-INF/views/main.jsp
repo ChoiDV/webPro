@@ -20,6 +20,14 @@
 		ID <input type="text" name="id">
 		<input type="submit" value="POST식으로 보내기">
 	</form>
+	<hr>
+	<h1>redirect, forward 키워드 예제</h1>
+	<form action="${conPath }/idConfirm.do" method="get">
+		ID <input type="text" name="id">
+		<input type="submit" value="idConfirm">
+	</form>
+	<hr>
+	<a href="${conPath }/fullpath.do">FullPath로 가기</a>
 </body>
 </html>
 
