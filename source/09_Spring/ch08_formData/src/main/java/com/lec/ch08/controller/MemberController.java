@@ -90,6 +90,7 @@ public class MemberController {
 	}
 	@RequestMapping("join6")
 	public String join6(@ModelAttribute("member") MemberDto memberDto) {
+		System.out.println(memberDto);
 		return "member/result4";
 	}
 }

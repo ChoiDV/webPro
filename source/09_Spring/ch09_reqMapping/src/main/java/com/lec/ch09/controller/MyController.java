@@ -52,6 +52,10 @@ public class MyController {
 	public String studentNg() {
 		return "studentNg";
 	}
+	@RequestMapping(value="fullpath", method = RequestMethod.GET)
+	public String fullpath() {
+		return "redirect:http://www.naver.com";
+	}
 }
 
 

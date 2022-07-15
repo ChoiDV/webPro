@@ -25,7 +25,7 @@
 			<tr><th>이름</th><td><input type="text" name="name"></td></tr>
 			<tr><th>아이디</th><td><input type="text" name="id"></td></tr>
 			<tr><th>비밀번호</th><td><input type="password" name="pw"></td></tr>
-			<tr><th>나이</th><td><input type="text" name="age"></td></tr>
+			<tr><th>나이</th><td><input type="number" name="age"></td></tr>
 			<tr><th>메일</th><td><input type="email" name="email"></td></tr>
 			<tr><th>주소</th><td><input type="text" name="address"></td></tr>
 			<tr><td colspan="2"><input type="submit" value="join"></td></tr>
