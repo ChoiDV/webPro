@@ -35,6 +35,23 @@ public class MyController {
 		mav.setViewName("studentId");
 		return mav;
 	}
+	@RequestMapping(value="idConfirm", method = RequestMethod.GET)
+	public String idConfirm(String id, Model model) {
+		model.addAttribute("id", id);
+		if(id.equals("aaa")) {
+			//return "redirect:studentOk.do";
+			return "forward:studentOk.do";
+		}
+		return "redirect:studentNg.do?id="+id;
+	}
+	@RequestMapping(value="studentOk", method = RequestMethod.GET)
+	public String studentOk() {
+		return "studentOk";
+	}
+	@RequestMapping(value="studentNg", method=RequestMethod.GET)
+	public String studentNg(String id) {
+		return "studentNg";
+	}
 }
 
 
