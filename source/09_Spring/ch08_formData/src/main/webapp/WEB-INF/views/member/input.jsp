@@ -17,7 +17,9 @@
 	<%-- <form action="${conPath }/member/join1"> --%>
 	<%-- <form action="${conPath }/member/join2"> --%>
 	<%-- <form action="${conPath }/member/join3"> --%>
-	<form action="${conPath }/member/join4">
+	<%-- <form action="${conPath }/member/join4"> --%>
+	<%-- <form action="${conPath }/member/join5"> --%>
+	<form action="${conPath }/member/join6">
 		<table>
 			<caption>개인 정보 입력</caption>
 			<tr><th>이름</th><td><input type="text" name="name"></td></tr>
@@ -29,6 +31,9 @@
 			<tr><td colspan="2"><input type="submit" value="join"></td></tr>
 		</table>
 	</form>
+	<a href="${conPath }/studentId/aaa">studetId에 aaa로 전송</a>
+	<a href="${conPath }/studentId/bbb">studetId에 bbb로 전송</a>
+	<a href="${conPath }/studentId/홍홍홍">studetId에 홍홍홍로 전송</a>
 </body>
 </html>
 

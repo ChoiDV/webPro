@@ -78,6 +78,20 @@ public class MemberController {
 //		model.addAttribute("member", member);
 //		return "member/result4";
 //	}
+	@RequestMapping("join4")
+	public String join4(MemberDto memberDto, Model model) {
+		model.addAttribute("member", memberDto);
+		return "member/result4";
+	}
+	@RequestMapping("join5")
+	public String join5(MemberDto memberDto/*, Model model*/) {
+		// model.addAttribute("memberDto", memberDto);
+		return "member/result5";
+	}
+	@RequestMapping("join6")
+	public String join6(@ModelAttribute("member") MemberDto memberDto) {
+		return "member/result4";
+	}
 }
 
 
