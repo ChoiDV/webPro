@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lec.ch11.bservice.BContentService;
+import com.lec.ch11.bservice.BDeleteService;
 import com.lec.ch11.bservice.BListService;
 import com.lec.ch11.bservice.BModifyReplyViewService;
 import com.lec.ch11.bservice.BModifyService;
+import com.lec.ch11.bservice.BReplyService;
 import com.lec.ch11.bservice.BWriteService;
 import com.lec.ch11.bservice.Service;
 import com.lec.ch11.dto.BoardDto;
@@ -77,6 +79,27 @@ public class BoardController {
 		bservice = new BModifyService();
 		bservice.execute(model);
 		return "forward:content.do";
+	}
+	@RequestMapping(value="delete", method = RequestMethod.GET)
+	public String delete(int bid, Model model) {
+		model.addAttribute("bid", bid);
+		bservice = new BDeleteService();
+		bservice.execute(model);
+		return "forward:list.do";
+	}
+	@RequestMapping(value="reply", method = RequestMethod.GET)
+	public String replyView(int bid, Model model) {
+		model.addAttribute("bid", bid);
+		bservice = new BModifyReplyViewService();  // bid로 dto 가져오기(조회수를 올리지 않고)
+		bservice.execute(model);
+		return "mvcboard/reply";
+	}
+	@RequestMapping(value="reply", method = RequestMethod.POST)
+	public String reply(BoardDto boardDto, HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		bservice = new BReplyService();
+		bservice.execute(model);
+		return "forward:list.do";
 	}
 }
 
