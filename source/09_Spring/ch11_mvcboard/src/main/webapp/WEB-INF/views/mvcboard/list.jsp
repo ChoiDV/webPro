@@ -12,7 +12,13 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
 		$(document).ready(function(){
-			
+			$('tr').click(function(){
+				var bid = Number($(this).children().eq(2).text());
+				if(!isNaN(bid)){
+					// alert(bid);
+					location.href = '${conPath}/mvcboard/content.do?bid='+bid+'&pageNum=${pageNum}';
+				}
+			});
 		});
 	</script>
 </head>
@@ -25,6 +31,9 @@
 	<!--  글답변 성공 / 실패 alert -->
 	<c:set var="oNum" value="${orderNum }"/>
 	<c:set var="iNum" value="${inverseNum }"/>
+	<table>
+		<tr><td><a href="${conPath }/mvcboard/writeView.do">글쓰기</a></td></tr>
+	</table>
 	<table>
 		<tr>
 			<th>순번</th><th>역순</th><th>글번호</th>

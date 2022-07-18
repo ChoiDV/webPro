@@ -54,7 +54,6 @@ public class BoardDao {
 				String bcontent = rs.getString("bcontent");
 				Timestamp bdate = rs.getTimestamp("bdate");
 				Date date = rs.getDate("bdate");
-				System.out.println(bdate);
 				int bhit = rs.getInt("bhit");
 				int bgroup = rs.getInt("bgroup");
 				int bstep = rs.getInt("bstep");
