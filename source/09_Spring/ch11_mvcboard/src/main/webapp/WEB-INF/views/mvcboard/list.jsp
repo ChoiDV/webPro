@@ -12,14 +12,17 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('tr').click(function(){
+			/* $('tr').click(function(){
 				var bid = Number($(this).children().eq(2).text());
 				if(!isNaN(bid)){
 					// alert(bid);
 					location.href = '${conPath}/mvcboard/content.do?bid='+bid+'&pageNum=${pageNum}';
 				}
-			});
+			}); */
 		});
+		function trclicked(bid){
+			location.href = '${conPath}/mvcboard/content.do?bid='+bid+'&pageNum=${pageNum}';
+		}
 	</script>
 </head>
 <body>
