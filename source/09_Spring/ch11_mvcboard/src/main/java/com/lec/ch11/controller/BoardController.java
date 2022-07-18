@@ -21,4 +21,24 @@ public class BoardController {
 		bservice.execute(model);
 		return "mvcboard/list";
 	}
+	@RequestMapping(value="writeView", method = RequestMethod.GET)
+	public String writeView() {
+		return "mvcboard/write";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
