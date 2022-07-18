@@ -52,8 +52,8 @@
 						${bDto.btitle }
 					</td>
 					<td>
-						<fmt:formatDate value="${bDto.bdate }" pattern="yy/MM/dd(E) hh:mm:ss(a)"/><br>
-  					<fmt:formatDate value="${bDto.date }" pattern="yy/MM/dd(E) hh:mm:ss(a)"/>
+						<fmt:formatDate value="${bDto.bdate }" pattern="yy/MM/dd(E) hh:mm:ss(a)"/><%-- <br>
+  					<fmt:formatDate value="${bDto.date }" pattern="yy/MM/dd(E) hh:mm:ss(a)"/> --%>
 					</td>
 					<td>
 						<fmt:formatNumber value="${bDto.bhit }" groupingUsed="true"/>
@@ -64,6 +64,22 @@
 			</c:forEach>
 		</c:if>
 	</table>
+	<div class="paging">
+		<c:if test="${startPage > BLOCKSIZE }">
+			[ <a href="${conPath }/mvcboard/list.do?pageNum=${startPage-1}">이전</a> ]
+		</c:if>
+		<c:forEach var="i" begin="${startPage }" end="${endPage }">
+			<c:if test="${i eq pageNum }">
+				[ <b> ${i } </b> ]
+			</c:if>
+			<c:if test="${i != pageNum }">
+				[ <a href="${conPath }/mvcboard/list.do?pageNum=${i}">${i }</a> ]
+			</c:if>
+		</c:forEach>
+		<c:if test="${endPage < pageCnt }">
+			[ <a href="${conPath }/mvcboard/list.do?pageNum=${endPage+1}">다음</a> ]
+		</c:if>
+	</div>
 </body>
 </html>
 
