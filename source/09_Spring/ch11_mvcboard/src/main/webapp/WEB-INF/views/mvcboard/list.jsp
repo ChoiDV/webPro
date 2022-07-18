@@ -29,6 +29,12 @@
 	<c:set var="SUCCESS" value="1"/>
 	<c:set var="FAIL" value="0"/>
 	<!--  글쓰기 성공 / 실패 alert -->
+	<c:if test="${writeResult eq SUCCESS }">
+		<script>alert('글쓰기 성공');</script>
+	</c:if>
+	<c:if test="${writeResult eq FAIL }">
+		<script>alert('글쓰기 실패');</script>
+	</c:if>
 	<!--  글수정 성공 / 실패 alert -->
 	<!--  글삭제 성공 / 실패 alert -->
 	<!--  글답변 성공 / 실패 alert -->
