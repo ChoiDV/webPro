@@ -11,8 +11,13 @@
 	<link href="${conPath }/css/style.css" rel="stylesheet">
 </head>
 <body>
-	<c:if test="${modifyResult eq 1 }">
+	<c:set var="SUCCESS" value="1"/>
+	<c:set var="FAIL" value="0"/>
+	<c:if test="${modifyResult eq SUCCESS }">
 		<script>alert('수정 성공');</script>
+	</c:if>
+	<c:if test="${modifyResult eq 0 }">
+		<script>alert('수정 실패'); history.back();</script>
 	</c:if>
 	<!-- ${bDto } ${param.bid } ${param.pageNum } 들어옴 -->
 	<table>
