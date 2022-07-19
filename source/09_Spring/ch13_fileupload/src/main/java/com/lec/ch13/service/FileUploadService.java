@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 @Service
 public class FileUploadService {
-	public boolean FileUp(MultipartHttpServletRequest mRequest, 
+	public boolean fileUp(MultipartHttpServletRequest mRequest, 
 			ModelAndView mav) {
 		boolean isUpload = false;
 		// 파일 업로드된 파일명 받아, 서버에 업로드, 프로젝트 폴더에 복사

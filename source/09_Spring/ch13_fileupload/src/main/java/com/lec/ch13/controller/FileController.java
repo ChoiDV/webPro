@@ -17,8 +17,13 @@ public class FileController {
 	@RequestMapping(value="fileupload", method = RequestMethod.POST)
 	public ModelAndView fileupload(MultipartHttpServletRequest mRequest,
 								ModelAndView mav) {
-		
-		return null;
+		if(fService.fileUp(mRequest, mav)) {
+			mav.addObject("fileResult", "파일 업로드 성공");
+		}else {
+			mav.addObject("fileResult", "파일 업로드 실패");
+		}
+		mav.setViewName("fileResult");
+		return mav;
 	}
 }
 
