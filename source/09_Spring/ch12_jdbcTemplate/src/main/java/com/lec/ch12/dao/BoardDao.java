@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 
 import com.lec.ch12.dto.BoardDto;
 import com.lec.ch12.util.Constant;
@@ -44,201 +45,59 @@ public class BoardDao {
 		String sql = "SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP";
 		return (ArrayList<BoardDto>) template.query(sql, new BeanPropertyRowMapper<BoardDto>(BoardDto.class));
 	}
-	public ArrayList<BoardDto> boardList(int startRow, int endRow){
-		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet         rs    = null;
+	public ArrayList<BoardDto> boardList(final int startRow, final int endRow){
 		String sql = "SELECT * FROM (SELECT ROWNUM RN, A.* " + 
 				"           FROM (SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP) A)" + 
 				"    WHERE RN BETWEEN ? AND ?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				int bid = rs.getInt("bid");
-				String bname = rs.getString("bname");
-				String btitle = rs.getString("btitle");
-				String bcontent = rs.getString("bcontent");
-				Timestamp bdate = rs.getTimestamp("bdate");
-				Date date = rs.getDate("bdate");
-				int bhit = rs.getInt("bhit");
-				int bgroup = rs.getInt("bgroup");
-				int bstep = rs.getInt("bstep");
-				int bindent = rs.getInt("bindent");
-				String bip = rs.getString("bip");
-				dtos.add(new BoardDto(bid, bname, btitle, bcontent, bdate, date, bhit, bgroup, bstep, bindent, bip));
+		return (ArrayList<BoardDto>) template.query(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement pstmt) throws SQLException {
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
 			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return dtos;
+		}, 
+		new BeanPropertyRowMapper<BoardDto>(BoardDto.class));
 	}
 	// 글 갯수 
 	public int getBoardTotCnt() {
-		int totCnt = 0;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet         rs    = null;
 		String sql = "SELECT COUNT(*) FROM MVC_BOARD";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				totCnt = rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return totCnt;
+		return template.queryForObject(sql, Integer.class);
 	}
 	//원글쓰기
-	public int write(BoardDto bDto) {
-		int result = FAIL;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
+	public int write(final BoardDto bDto) {
 		String sql = "INSERT INTO MVC_BOARD "
 				+ "(bID, bNAME, bTITLE, bCONTENT, bGROUP, bSTEP, bINDENT, bIP)" + 
 				"    VALUES (MVC_BOARD_SEQ.NEXTVAL, ?, ?, ?, " + 
 				"            MVC_BOARD_SEQ.CURRVAL, 0,0, ?)";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bDto.getBname());
-			pstmt.setString(2, bDto.getBtitle());
-			pstmt.setString(3, bDto.getBcontent());
-			pstmt.setString(4, bDto.getBip());
-			result = pstmt.executeUpdate();
-			System.out.println(result==SUCCESS ? "글쓰기 성공":"글쓰기 실패 : " + bDto);
-		} catch (SQLException e) {
-			System.out.println("글쓰기 실패 예외 : "+e.getMessage());
-		}finally {
-			try {
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
+		return template.update(sql, new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement pstmt) throws SQLException {
+				pstmt.setString(1, bDto.getBname());
+				pstmt.setString(2, bDto.getBtitle());
+				pstmt.setString(3, bDto.getBcontent());
+				pstmt.setString(4, bDto.getBip());
+				
 			}
-		}
-		return result;
+		});
 	}
 	// hit수 올리기
 	private void hitUp(int bid) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		String sql = "UPDATE MVC_BOARD SET BHIT = BHIT+1 WHERE BID=?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bid);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println("조회수 올리기 예외 : "+e.getMessage());
-		}finally {
-			try {
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-			System.out.println(e.getMessage());
-			}
-		}
+		String sql = "UPDATE MVC_BOARD SET BHIT = BHIT+1 WHERE BID="+bid;
+		template.update(sql);
+		
 	}
 	// 글 상세보기(글 상세볼 때 조회수도 올림)
 	public BoardDto contentView(int bid) {
 		hitUp(bid);
-		BoardDto bDto = null;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet         rs    = null;
-		String sql = "SELECT * FROM MVC_BOARD WHERE BID=?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bid);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				String bname = rs.getString("bname");
-				String btitle = rs.getString("btitle");
-				String bcontent = rs.getString("bcontent");
-				Timestamp bdate = rs.getTimestamp("bdate");
-				Date date = rs.getDate("bdate");
-				int bhit = rs.getInt("bhit");
-				int bgroup = rs.getInt("bgroup");
-				int bstep = rs.getInt("bstep");
-				int bindent = rs.getInt("bindent");
-				String bip = rs.getString("bip");
-				bDto = new BoardDto(bid, bname, btitle, bcontent, bdate, date, bhit, bgroup, bstep, bindent, bip);
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return bDto;
+		String sql = "SELECT * FROM MVC_BOARD WHERE BID="+bid;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<BoardDto>(BoardDto.class));
 	}
 	// bid로 dto 가져오기 (답글쓰기 + 수정)
 	public BoardDto modifyView_replyView(int bid) {
-		BoardDto bDto = null;
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet         rs    = null;
-		String sql = "SELECT * FROM MVC_BOARD WHERE BID=?";
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bid);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				String bname = rs.getString("bname");
-				String btitle = rs.getString("btitle");
-				String bcontent = rs.getString("bcontent");
-				Timestamp bdate= rs.getTimestamp("bdate");
-				Date date = rs.getDate("bdate");
-				int bhit = rs.getInt("bhit");
-				int bgroup = rs.getInt("bgroup");
-				int bstep = rs.getInt("bstep");
-				int bindent = rs.getInt("bindent");
-				String bip = rs.getString("bip");
-				bDto =  new BoardDto(bid, bname, btitle, bcontent, bdate, date, bhit, bgroup, bstep, bindent, bip);
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}finally {
-			try {
-				if(rs!=null) rs.close();
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
-		return bDto;
+		String sql = "SELECT * FROM MVC_BOARD WHERE BID="+bid;
+		return template.queryForObject(sql, new BeanPropertyRowMapper<BoardDto>(BoardDto.class));
 	}
 	// 글 수정하기
 	public int modify(BoardDto bDto) {
