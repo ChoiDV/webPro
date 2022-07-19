@@ -12,15 +12,22 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.lec.ch12.dto.BoardDto;
+import com.lec.ch12.util.Constant;
 public class BoardDao {
 	public static final int FAIL = 0;
 	public static final int SUCCESS = 1;
+	public JdbcTemplate template;
 	private static BoardDao instance = new BoardDao();
 	public static BoardDao getInstance() {
 		return instance;
 	}
-	private BoardDao() {}
+	private BoardDao() {
+		template = Constant.template;
+	}
 	private Connection getConnection() throws SQLException {
 		Connection conn = null;
 		try {
@@ -33,6 +40,10 @@ public class BoardDao {
 		return conn;
 	}
 	// 글목록
+	public ArrayList<BoardDto> boardList(){
+		String sql = "SELECT * FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP";
+		return (ArrayList<BoardDto>) template.query(sql, new BeanPropertyRowMapper<BoardDto>(BoardDto.class));
+	}
 	public ArrayList<BoardDto> boardList(int startRow, int endRow){
 		ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
 		Connection conn = null;

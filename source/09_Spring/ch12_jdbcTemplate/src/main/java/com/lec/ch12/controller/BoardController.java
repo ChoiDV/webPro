@@ -1,6 +1,8 @@
 package com.lec.ch12.controller;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 // mvcboard/content.do, mvcboard/modify.do, mvcboard/reply.do
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.lec.ch12.bservice.BContentService;
 import com.lec.ch12.bservice.BDeleteService;
 import com.lec.ch12.bservice.BListService;
@@ -18,10 +19,19 @@ import com.lec.ch12.bservice.BReplyService;
 import com.lec.ch12.bservice.BWriteService;
 import com.lec.ch12.bservice.Service;
 import com.lec.ch12.dto.BoardDto;
+import com.lec.ch12.util.Constant;
 @Controller
 @RequestMapping("mvcboard") // 공통요청경로
 public class BoardController {
 	private Service bservice;
+	
+	private JdbcTemplate template;
+	@Autowired
+	public void setTemplate(JdbcTemplate template) {
+		this.template = template;
+		// 이 프로젝트 전체에서 template을 다 쓸 수 있도록
+		Constant.template = this.template;
+	}
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public String list(String pageNum, Model model) {
 		// mvcboard/list.do?pageNum=2
