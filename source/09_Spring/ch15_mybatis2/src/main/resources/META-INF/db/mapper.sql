@@ -1,0 +1,18 @@
+--  Dept.xml id=deptList
+SELECT * FROM DEPT;
+-- Emp.xml id=empList
+-- SELECT * FROM EMP ORDER BY EMPNO; -- 출력 조건
+SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM EMP ORDER BY EMPNO) A)
+    WHERE RN BETWEEN 6 AND 10;
+-- Emp.xml id=totCnt
+SELECT COUNT(*) FROM EMP;
+-- Emp.xml id=detail
+SELECT * FROM EMP WHERE EMPNO=7698;
+-- Emp.xml id=managerList
+SELECT * FROM EMP WHERE EMPNO IN (SELECT MGR FROM EMP);
+
+
+
+
+
+
