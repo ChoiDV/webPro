@@ -24,6 +24,9 @@
 		<property name="configLocation" value="classpath:META-INF/sqlmap/config/mybatis-config.xml"/>
 	</bean>
 	<!--  sqlSessionTemplate 빈 생성 -->
+	<bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
 </beans>
 
 
