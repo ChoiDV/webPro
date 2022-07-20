@@ -3,15 +3,14 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.lec.ch14.dto.Dept;
+import com.lec.ch14.dto.Emp;
 @Repository
-public class DeptDaoImpl implements DeptDao {
+public class EmpDaoImpl implements EmpDao {
 	@Autowired
 	private SqlSession sessionTemplate;
 	@Override
-	public List<Dept> deptList() {
+	public List<Emp> empList(Emp schEmp) {
 		// TODO Auto-generated method stub
-		return sessionTemplate.selectList("deptList");
+		return sessionTemplate.selectList("empList", schEmp);
 	}
-
 }
