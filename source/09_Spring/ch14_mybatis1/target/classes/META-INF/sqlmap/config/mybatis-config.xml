@@ -7,5 +7,8 @@
 		<typeAlias type="com.lec.ch14.dto.Dept" alias="Dept"/>
 		<typeAlias type="com.lec.ch14.dto.Emp" alias="Emp"/>
 	</typeAliases>
-	
+	<mappers>
+		<mapper resource="META-INF/sqlmap/mappers/Dept.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/Emp.xml"/>
+	</mappers>
 </configuration>
