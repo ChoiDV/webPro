@@ -28,14 +28,3 @@ public class EmpServiceImpl implements EmpService {
 		return empDao.empList(schEmp);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
