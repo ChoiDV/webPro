@@ -21,6 +21,9 @@
 	</script>
 </head>
 <body>
+	<c:if test="${updateResult eq 1}">
+		<script> alert('직원 정보 수정 성공');</script>
+	</c:if>
 	<c:set var="num" value="${paging.totCnt - paging.startRow + 1 }"/>
 	<table>
 		<caption>직원 목록</caption>
@@ -48,11 +51,11 @@
 				[ <b>${i }</b> ]
 			</c:if>
 			<c:if test="${i != paging.currentPage }">
-				[ <a href="${conPath }/empDeptList?pageNum=${i}">${i }</a> ]
+				[ <a href="${conPath }/empDeptList.do?pageNum=${i}">${i }</a> ]
 			</c:if>
 		</c:forEach>
 		<c:if test="${paging.endPage < paging.pageCnt }">
-			[ <a href="${conPath }/empDeptList?pageNum=${paging.endPage+1}">다음</a> ]
+			[ <a href="${conPath }/empDeptList.do?pageNum=${paging.endPage+1}">다음</a> ]
 		</c:if>
 	</div>
 </body>

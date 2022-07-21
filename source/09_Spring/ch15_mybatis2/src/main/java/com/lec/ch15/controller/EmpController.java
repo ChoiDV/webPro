@@ -1,10 +1,13 @@
 package com.lec.ch15.controller;
+import java.sql.Timestamp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.lec.ch15.model.Emp;
 import com.lec.ch15.service.EmpService;
 import com.lec.ch15.util.Paging;
 @Controller
@@ -30,7 +33,27 @@ public class EmpController {
 		model.addAttribute("paging", new Paging(empService.totCnt(), pageNum, 10, 5));
 		return "empDeptList";
 	}
-	
+	@RequestMapping(value="detail", method = RequestMethod.GET)
+	public String detail(int empno, Model model) {
+		model.addAttribute("empDto", empService.detail(empno));
+		return "detail";
+	}
+	@RequestMapping(value="updateView", method = {RequestMethod.GET, RequestMethod.POST})
+	public String updateView(int empno, Model model) {
+		model.addAttribute("empDto", empService.detail(empno));
+		return "update";
+	}
+	@RequestMapping(value="update", method = RequestMethod.POST)
+	public String update(Emp emp, String tempHiredate, Model model) {
+		emp.setHiredate(Timestamp.valueOf(tempHiredate + " 00:00:00"));
+		try {
+			model.addAttribute("updateResult", empService.update(emp));
+		}catch(Exception e) {
+			model.addAttribute("updateResult", "필드 값이 너무 깁니다. 수정 실패");
+			return "forward:updateView.do";
+		}
+		return "forward:empDeptList.do";
+	}
 }
 
 
