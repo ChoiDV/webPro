@@ -24,6 +24,9 @@
 	<c:if test="${updateResult eq 1}">
 		<script> alert('직원 정보 수정 성공');</script>
 	</c:if>
+	<c:if test="${deleteResult eq 1}">
+		<script> alert('${param.empno}번 직원 정보 삭제 성공');</script>
+	</c:if>
 	<c:set var="num" value="${paging.totCnt - paging.startRow + 1 }"/>
 	<table>
 		<caption>직원 목록</caption>

@@ -54,6 +54,11 @@ public class EmpController {
 		}
 		return "forward:empDeptList.do";
 	}
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String delete(int empno, Model model) {
+		model.addAttribute("deleteResult", empService.delete(empno));
+		return "forward:empDeptList.do";
+	}
 }
 
 
