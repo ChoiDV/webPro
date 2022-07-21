@@ -18,4 +18,20 @@ public class EmpController {
 		model.addAttribute("paging", new Paging(empService.totCnt(), pageNum, 10, 5));
 		return "empList";
 	}
+	@RequestMapping(value="dummyDataInsert", method = RequestMethod.GET)
+	public String dummyDataInsert() {
+		empService.dummyDataInsert50();
+		return "redirect:empList.do";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

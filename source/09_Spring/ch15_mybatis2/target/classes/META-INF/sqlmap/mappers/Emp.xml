@@ -32,7 +32,7 @@
 	</select>
 	
 	<select id="detail" parameterType="int" resultType="Emp">
-		SELECT * FROM EMP WHERE EMPNO = #{empno}
+		SELECT * FROM EMP WHERE EMPNO = #{empno, jdbcType=VARCHAR}
 	</select>
 	
 	<select id="managerList" resultMap="EmpResult">
