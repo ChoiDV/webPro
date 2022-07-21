@@ -22,8 +22,22 @@ public class EmpController {
 	public String dummyDataInsert() {
 		empService.dummyDataInsert50();
 		return "redirect:empList.do";
+	} 
+	@RequestMapping(value="empDeptList", method= {RequestMethod.GET, RequestMethod.POST})
+	public String empDeptList(String pageNum, Model model) {
+		//empDeptList.do , empDeptList.do?pageNum=2
+		model.addAttribute("empList", empService.empDeptList(pageNum));
+		model.addAttribute("paging", new Paging(empService.totCnt(), pageNum, 10, 5));
+		return "empDeptList";
 	}
+	
 }
+
+
+
+
+
+
 
 
 
