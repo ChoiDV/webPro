@@ -30,7 +30,7 @@
 	<c:set var="num" value="${paging.totCnt - paging.startRow + 1 }"/>
 	<table>
 		<caption>직원 목록</caption>
-		<tr><td colspan="6" align="right"><a href="${conPath }/writeForm.do">직원등록</a></td></tr>
+		<tr><td colspan="6" align="right"><a href="${conPath }/writeView.do">직원등록</a></td></tr>
 		<tr><th>번호</th><th>사번</th><th>이름</th><th>직책</th><th>입사일</th><th>근무지</th></tr>
 			<c:forEach items="${empList }" var="emp">
 				<tr onclick="trclicked(${emp.empno})">

@@ -59,6 +59,12 @@ public class EmpController {
 		model.addAttribute("deleteResult", empService.delete(empno));
 		return "forward:empDeptList.do";
 	}
+	@RequestMapping(value = "writeView", method = {RequestMethod.GET, RequestMethod.POST})
+	public String writeView(Model model) {
+		model.addAttribute("managerList", empService.managerList());
+		model.addAttribute("deptList", empService.deptList());
+		return "write";
+	}
 }
 
 
