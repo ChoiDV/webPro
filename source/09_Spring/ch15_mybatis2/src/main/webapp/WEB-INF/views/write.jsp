@@ -13,8 +13,28 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
 		$(document).ready(function(){
+			$('form').submit(function(){
+				var msg = $('span').text();
+				if(!msg ){
+					alert('사번 중복확인 요망합니다');
+					return false;
+				}else if(msg != '사용가능한 사번입니다'){
+					alert('사용가능한 사번으로 등록하세요');
+					frm.empno.focus();
+					return false;
+				}
+			});
 			
 		});
+		function chk(){
+			if(! frm.empno.value){
+				alert('사번입력 후 중복확인하세요');
+				frm.empno.focus();
+			}else{
+				var empno = frm.empno.value;
+				location.href = 'confirmNo.do?empno='+empno;
+			}
+		}
 	</script>
 </head>
 <body>
