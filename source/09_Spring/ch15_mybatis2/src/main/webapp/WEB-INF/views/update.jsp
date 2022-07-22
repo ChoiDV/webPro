@@ -30,7 +30,7 @@
 			<tr><th>상사사번</th><td><input type="number" name="mgr" value="${empDto.mgr }"></td></tr>
 			<tr>
 				<th>입사일</th>                                  
-				<td><input type="date" name="tempHiredate" value="${empDto.hiredate.toString().substring(0,10) }"></td>
+				<td><input type="date" name="hiredate" value="${empDto.hiredate }"></td>
 			</tr>
 			<tr><th>급여</th><td><input type="number" name="sal" value="${empDto.sal }"></td></tr>
 			<tr><th>상여</th><td><input type="number" name="comm" value="${empDto.comm}"></td></tr>

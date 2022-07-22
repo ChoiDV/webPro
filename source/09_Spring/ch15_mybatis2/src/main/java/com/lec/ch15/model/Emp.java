@@ -1,5 +1,6 @@
 package com.lec.ch15.model;
-import java.sql.Timestamp;
+import java.sql.Date;
+
 import lombok.Data;
 @Data
 public class Emp {
@@ -7,7 +8,7 @@ public class Emp {
 	private String ename;
 	private String job;
 	private int mgr;
-	private Timestamp hiredate;
+	private Date hiredate;
 	private int sal;
 	private int comm;
 	private int deptno;

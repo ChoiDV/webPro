@@ -32,7 +32,16 @@
 				frm.empno.focus();
 			}else{
 				var empno = frm.empno.value;
-				location.href = 'confirmNo.do?empno='+empno;
+				var ename = frm.ename.value;
+				var job = frm.job.value;
+				var mgr = frm.mgr.value;
+				var hiredate = frm.hiredate.value;
+				var sal = frm.sal.value;
+				var comm = frm.comm.value;
+				var deptno = frm.deptno.value;
+				location.href = 'confirmNo.do?empno='+empno+'&ename='+ename+'&job='+job +
+						'&mgr=' + mgr + '&hiredate=' + hiredate + '&sal='+sal +
+						'&comm=' + comm + '&deptno='+deptno;
 			}
 		}
 	</script>
@@ -67,7 +76,7 @@
 			<tr>
 				<th>입사일</th>
 				<td>
-					<input type="date" name="tempHiredate" value="<%=new Date(System.currentTimeMillis()) %>">
+					<input type="date" name="hiredate" value="<%=new Date(System.currentTimeMillis()) %>">
 				</td>
 			</tr>
 			<tr><th>급여</th><td><input type="number" name="sal" value="800"></td></td></tr>

@@ -44,8 +44,7 @@ public class EmpController {
 		return "update";
 	}
 	@RequestMapping(value="update", method = RequestMethod.POST)
-	public String update(Emp emp, String tempHiredate, Model model) {
-		emp.setHiredate(Timestamp.valueOf(tempHiredate + " 00:00:00"));
+	public String update(Emp emp, Model model) {
 		try {
 			model.addAttribute("updateResult", empService.update(emp));
 		}catch(Exception e) {
