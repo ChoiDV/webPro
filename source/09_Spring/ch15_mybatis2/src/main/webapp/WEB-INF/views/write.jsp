@@ -36,8 +36,17 @@
 				var job = frm.job.value;
 				var mgr = frm.mgr.value;
 				var hiredate = frm.hiredate.value;
+				if(! hiredate) {
+					hiredate = '<%=new Date(System.currentTimeMillis()) %>';
+				}
 				var sal = frm.sal.value;
+				if(! sal){
+					sal = 0;
+				}
 				var comm = frm.comm.value;
+				if(!comm){
+					comm = 0;
+				}
 				var deptno = frm.deptno.value;
 				location.href = 'confirmNo.do?empno='+empno+'&ename='+ename+'&job='+job +
 						'&mgr=' + mgr + '&hiredate=' + hiredate + '&sal='+sal +
@@ -68,7 +77,9 @@
 				<td>
 					<select name="mgr">
 						<c:forEach items="${managerList }" var="mgrEmp">
-							<option value="${mgrEmp.empno }">${mgrEmp.empno } - ${mgrEmp.ename }</option>
+							<option value="${mgrEmp.empno }" 
+								<c:if test="${mgrEmp.empno eq emp.mgr }">selected="selected"</c:if>
+							>${mgrEmp.empno } - ${mgrEmp.ename }</option>
 						</c:forEach>
 					</select>
 				</td>
@@ -76,17 +87,19 @@
 			<tr>
 				<th>입사일</th>
 				<td>
-					<input type="date" name="hiredate" value="<%=new Date(System.currentTimeMillis()) %>">
+					<input type="date" name="hiredate" value="${emp.hiredate }" required="required">
 				</td>
 			</tr>
-			<tr><th>급여</th><td><input type="number" name="sal" value="800"></td></td></tr>
-			<tr><th>상여</th><td><input type="number" name="comm" value="0"></td></td></tr>
+			<tr><th>급여</th><td><input type="number" name="sal" value="${emp.sal==0 ? '': emp.sal}" required="required"></td></tr>
+			<tr><th>상여</th><td><input type="number" name="comm" value="${emp.comm==0? '' : emp.comm}" required="required"></td></tr>
 			<tr>
 				<th>부서번호</th>
 				<td>
 					<select name="deptno">
 						<c:forEach items="${deptList }" var="dept">
-							<option value="${dept.deptno }">${dept.deptno }-${dept.dname }-${dept.loc }</option>
+							<option value="${dept.deptno }"
+								<c:if test="${dept.deptno eq emp.deptno }">selected="selected"</c:if>
+							>${dept.deptno }-${dept.dname }-${dept.loc }</option>
 						</c:forEach>
 					</select>
 				</td>
