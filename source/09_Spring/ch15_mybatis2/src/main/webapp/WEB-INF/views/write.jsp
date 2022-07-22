@@ -87,7 +87,7 @@
 			<tr>
 				<th>입사일</th>
 				<td>
-					<input type="date" name="hiredate" value="${emp.hiredate }" required="required">
+					<input type="date" name="hiredate" value="${emp.hiredate}" required="required">
 				</td>
 			</tr>
 			<tr><th>급여</th><td><input type="number" name="sal" value="${emp.sal==0 ? '': emp.sal}" required="required"></td></tr>
