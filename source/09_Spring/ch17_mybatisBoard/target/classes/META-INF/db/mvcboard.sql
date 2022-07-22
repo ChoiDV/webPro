@@ -54,4 +54,4 @@ UPDATE MVC_BOARD SET BNAME='김김김',
 -- id=boardDelete : 글삭제하기
 DELETE FROM MVC_BOARD WHERE BID=1;
 COMMIT;
-SELECT to_char(bdate,'yyyy/mm/dd hh:mi') FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP;
+SELECT to_char(bdate,'yyyy/mm/dd hh12:mi:ss') FROM MVC_BOARD ORDER BY BGROUP DESC, BSTEP;
