@@ -13,7 +13,13 @@
 	BoardDao boardDao = BoardDao.getInstance();
 	BoardDto bDto = new BoardDto();
 	for(int i=0 ; i<101 ; i++){
-		bDto.setBname("홍길동"+i);
+		if(i%3==1){
+			bDto.setBname("홍길동");
+		}else if(i%3==1){
+			bDto.setBname("이춘추");
+		}else{
+			bDto.setBname("마리오");
+		}
 		bDto.setBtitle("제목 "+i);
 		bDto.setBcontent("본문입니다");
 		bDto.setBip("127.12.10."+i);
