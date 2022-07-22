@@ -56,13 +56,13 @@
 			<tr>
 				<th>사번</th>
 				<td>
-					<input type="number" name="empno" required="required" value="${param.empno}">
+					<input type="number" name="empno" required="required" value="${emp.empno}">
 					<input type="button" value="중복확인" onclick="chk()" class="btn"><br>
 					<span><c:if test="${not empty msg }">${msg }</c:if></span>
 				</td>
 			</tr>
-			<tr><th>이름</th><td><input type="text" name="ename"></td></tr>
-			<tr><th>직책</th><td><input type="text" name="job"></td></tr>
+			<tr><th>이름</th><td><input type="text" name="ename" value="${emp.ename}"></td></tr>
+			<tr><th>직책</th><td><input type="text" name="job" value="${emp.job}"></td></tr>
 			<tr>
 				<th>관리자</th>
 				<td>

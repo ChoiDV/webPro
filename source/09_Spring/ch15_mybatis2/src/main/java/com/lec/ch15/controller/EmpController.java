@@ -65,8 +65,8 @@ public class EmpController {
 		return "write";
 	}
 	@RequestMapping(value = "confirmNo", method = RequestMethod.GET)
-	public String confirmNo(int empno, Model model) {
-		if(empService.detail(empno) == null) {
+	public String confirmNo(Emp emp, Model model) {
+		if(empService.detail(emp.getEmpno()) == null) {
 			model.addAttribute("msg", "사용가능한 사번입니다");
 		}else {
 			model.addAttribute("msg", "중복된 사번은 사용불가합니다");
