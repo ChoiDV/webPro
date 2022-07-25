@@ -1,9 +1,6 @@
 package com.lec.ch19.dao;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
-
 import com.lec.ch19.dto.Book;
 @Mapper
 public interface BookDao {
