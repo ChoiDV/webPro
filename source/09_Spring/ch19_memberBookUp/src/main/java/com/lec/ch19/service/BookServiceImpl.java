@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -70,22 +71,88 @@ public class BookServiceImpl implements BookService {
 			}else {
 				// 파일 첨부 안 하면 bimg[idx] = ""
 				// bimg[idx] = "";
-			}
-		}
-			
-		return 0;
+			}//if
+			idx++;
+		}//while
+		book.setBimg1(bimg[0]); // 첫번째 첨부한 파일 이름
+		book.setBimg2(bimg[1]); // 두번째 첨부한 파일 이름
+		return bookDao.registerBook(book); // DB insert
 	}
 
 	@Override
 	public int registerBook(MultipartHttpServletRequest mRequest) {
-		// TODO Auto-generated method stub
-		return 0;
+		String uploadPath = mRequest.getRealPath("bookImgFileUpload/");
+		Iterator<String> params = mRequest.getFileNames(); // tempBimg1, tempBimg2
+		String[] bimg = new String[2];
+		int idx = 0;
+		while(params.hasNext()) {
+			String param = params.next();
+			MultipartFile mFile = mRequest.getFile(param); // 파라미터에 첨부된 파일 객체
+			bimg[idx] = mFile.getOriginalFilename(); 
+			if(bimg[idx]!=null && !bimg[idx].equals("")) { // 첨부함
+				if(new File(uploadPath + bimg[idx]).exists()) {
+					// 서버에 같은 파일이름이 있을 경우(첨부파일과)
+					bimg[idx] = System.currentTimeMillis() + "_" + bimg[idx];
+				}//if
+				try {
+					mFile.transferTo(new File(uploadPath + bimg[idx])); // 서버에 저장
+					System.out.println("서버파일 : " + uploadPath + bimg[idx]);
+					System.out.println("백업파일 : " + backupPath + bimg[idx]);
+					boolean result = fileCopy(uploadPath + bimg[idx], backupPath + bimg[idx]);
+					System.out.println(result ? idx+"번째 백업성공":idx+"번째 백업실패");
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+			}else {
+				// 파일 첨부 안 하면 bimg[idx] = ""
+				// bimg[idx] = "";
+			}//if
+			idx++;
+		}//while - bimg배열에 파일이름 저장
+		Book book = new Book();
+		book.setBnum(Integer.parseInt(mRequest.getParameter("bnum")));
+		book.setBtitle(mRequest.getParameter("btitle"));
+		book.setBwriter(mRequest.getParameter("bwriter"));
+		book.setBrdate(Date.valueOf(mRequest.getParameter("brdate")));
+		book.setBimg1(bimg[0]);
+		book.setBimg2(bimg[1]);
+		book.setBinfo(mRequest.getParameter("binfo"));
+		return bookDao.registerBook(book);
 	}
 
 	@Override
 	public int modifyBook(MultipartHttpServletRequest mRequest, Book book) {
-		// TODO Auto-generated method stub
-		return 0;
+		String uploadPath = mRequest.getRealPath("bookImgFileUpload/");
+		Iterator<String> params = mRequest.getFileNames(); // tempBimg1, tempBimg2
+		String[] bimg = new String[2];
+		int idx = 0;
+		while(params.hasNext()) {
+			String param = params.next();
+			MultipartFile mFile = mRequest.getFile(param); // 파라미터에 첨부된 파일 객체
+			bimg[idx] = mFile.getOriginalFilename(); 
+			if(bimg[idx]!=null && !bimg[idx].equals("")) { // 첨부함
+				if(new File(uploadPath + bimg[idx]).exists()) {
+					// 서버에 같은 파일이름이 있을 경우(첨부파일과)
+					bimg[idx] = System.currentTimeMillis() + "_" + bimg[idx];
+				}//if
+				try {
+					mFile.transferTo(new File(uploadPath + bimg[idx])); // 서버에 저장
+					System.out.println("서버파일 : " + uploadPath + bimg[idx]);
+					System.out.println("백업파일 : " + backupPath + bimg[idx]);
+					boolean result = fileCopy(uploadPath + bimg[idx], backupPath + bimg[idx]);
+					System.out.println(result ? idx+"번째 백업성공":idx+"번째 백업실패");
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+			}else {
+				// 파일 첨부 안 하면 bimg[idx] = ""
+				// bimg[idx] = "";
+			}//if
+			idx++;
+		}//while - bimg배열에 파일이름 저장
+		book.setBimg1(bimg[0]);
+		book.setBimg2(bimg[1]);
+		return bookDao.modifyBook(book);
 	}
 	private boolean fileCopy(String serverFile, String backupFile) {
 		boolean isCopy = false;
