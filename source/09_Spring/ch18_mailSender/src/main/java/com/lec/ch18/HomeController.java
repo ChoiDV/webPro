@@ -35,7 +35,27 @@ public class HomeController {
 		model.addAttribute("mailSendResult", "TEXT메일이 발송되었습니다");
 		return "sendResult";
 	}
+	@RequestMapping(value = "htmlMail", method = RequestMethod.GET)
+	public String htmlMail(String name, String email, Model model) {
+		// name에게 email 주소로 html 내용 보내기
+		
+		return "sendResult";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
