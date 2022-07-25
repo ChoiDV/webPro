@@ -58,20 +58,27 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String loginCheck(String mid, String mpw, HttpSession httpSession) {
 		String result = "로그인 성공";
-		Member member = memb
+		Member member = memberDao.getDetailMember(mid);
+		if(member == null) {
+			result = "유효하지 않은 아이디입니다";
+		}else if(! mpw.equals(member.getMpw())) {
+			result = "비밀번호가 맞지 않습니다";
+		}else {
+			// 로그인 성공
+			httpSession.setAttribute("member", member);
+			httpSession.setAttribute("mid", mid);
+		}
 		return result;
 	}
 
 	@Override
 	public Member getDetailMember(String mid) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.getDetailMember(mid);
 	}
 
 	@Override
 	public int modifyMember(Member member) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberDao.modifyMember(member);
 	}
 
 }
