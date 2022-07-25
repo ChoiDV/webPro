@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
 * { padding: 0; 	margin: 0; }
 body {background-color: #FFF0B5;	font-size: 9pt;}
 header a {text-decoration: none;	font-weight: bold;}

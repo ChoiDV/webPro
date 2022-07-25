@@ -1,0 +1,13 @@
+-- ★ Member.xml(회원가입, id중복체크, id로 memberDto로 가져오기, 정보수정) ★
+-- idConfirm
+-- joinMember
+-- getDetailMember
+-- modifyMember
+
+-- ★ Book.xml (페이징없이신규순list, 페이지징포함된도서list(책이름순), 책갯수, 상세보기, 도서등록, 도서수정) ★
+-- mainList
+-- bookList
+-- totCntBook
+-- getDetailBook
+-- registerBook
+-- modifyBook
