@@ -29,6 +29,7 @@ SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK ORDER BY BTITLE) A
 
 -- Book.xml id = totCntBook (등록된 책 갯수가져오기)
 SELECT COUNT(*) FROM BOOK;
+
 -- Book.xml id = getDetailBook (책번호bnum으로 dto가져오기)
 SELECT * FROM BOOK WHERE BNUM=1;
 
