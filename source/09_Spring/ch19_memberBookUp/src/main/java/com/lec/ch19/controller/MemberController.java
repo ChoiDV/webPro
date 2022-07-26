@@ -35,15 +35,8 @@ public class MemberController {
 	}
 	@RequestMapping(params="method=login", method=RequestMethod.POST)
 	public String login(String mid, String mpw, HttpSession httpSession, Model model) {
-		String result = memberService.loginCheck(mid, mpw, httpSession);
-		if(result.equals("로그인 성공")) {
-			return "redirect:main.do";
-		}else {
-			model.addAttribute("mid", mid);
-			model.addAttribute("mpw", mpw);
-			model.addAttribute("result", result);
-			return "forward:member.do?method=loginForm";
-		}
+		model.addAttribute("loginResult",  memberService.loginCheck(mid, mpw, httpSession));
+		return "redirect:main.do";
 	}
 	@RequestMapping(params="method=modifyForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String modifyForm() {
@@ -54,6 +47,11 @@ public class MemberController {
 		model.addAttribute("modifyResult", memberService.modifyMember(member));
 		httpSession.setAttribute("member", member);
 		return "forward:main.do";
+	}
+	@RequestMapping(params="method=logout")
+	public String logout(HttpSession httpSession) {
+		httpSession.invalidate();
+		return "redirect:main.do";
 	}
 }
 
