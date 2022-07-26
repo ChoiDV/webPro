@@ -28,7 +28,7 @@
 		<table>
 			<caption>도서 LIST</caption>
 			<tr>
-			<c:forEach var="b" items="${bookList }">
+			<c:forEach var="book" items="${bookList }">
 				<td>
 					${book.btitle }<br>
 					<a href="${conPath }/book.do?method=detail&bnum=${book.bnum}&pageNum=${paging.currentPage}">

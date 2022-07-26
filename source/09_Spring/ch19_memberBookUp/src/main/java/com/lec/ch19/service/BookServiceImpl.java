@@ -22,7 +22,7 @@ import com.lec.ch19.util.Paging;
 public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookDao bookDao;
-	String backupPath = "D:/webPro/source/09_Spring/ch19_memberBookUp/src/main/webapp/bookImgFileUpload/";
+	String backupPath = "D:\\webPro\\src_home\\09_Spring\\ch19_memberBookUp\\src\\main\\webapp\\bookImgFileUpload\\";
 	@Override
 	public List<Book> mainList() {
 		return bookDao.mainList();
@@ -79,10 +79,9 @@ public class BookServiceImpl implements BookService {
 		System.out.println("등록할 책 정보 : " + book);
 		return bookDao.registerBook(book); // DB insert
 	}
-	// public int registerBook(MultipartHttpServletRequest mRequest, Book book)로 추천
-	// 아래 메소드는 비추
+
 	@Override
-	public int registerBook(MultipartHttpServletRequest mRequest) { 
+	public int registerBook(MultipartHttpServletRequest mRequest) {
 		String uploadPath = mRequest.getRealPath("bookImgFileUpload/");
 		Iterator<String> params = mRequest.getFileNames(); // tempBimg1, tempBimg2
 		String[] bimg = new String[2];

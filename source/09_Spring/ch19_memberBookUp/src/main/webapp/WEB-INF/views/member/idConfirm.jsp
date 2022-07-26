@@ -7,13 +7,10 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<c:if test="${empty param.mid }">
-		ID 입력후, 중복확인하세요
+	<c:if test="${result eq 1 }">
+		<b style="color:red">중복된 ID입니다. 사용불가합니다</b>
 	</c:if>
-	<c:if test="${not empty param.mid and result eq 1 }">
-		<b style="color:red;">중복된 ID입니다. 사용불가합니다</b>
-	</c:if>
-	<c:if test="${not empty param.mid and result eq 0 }">
+	<c:if test="${result eq 0 }">
 		사용가능한 ID입니다
 	</c:if>
 </body>

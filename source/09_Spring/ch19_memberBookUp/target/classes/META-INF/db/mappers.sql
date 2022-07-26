@@ -37,16 +37,16 @@ SELECT * FROM BOOK WHERE BNUM=1;
 INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG1, bIMG2, bINFO)
     VALUES (BOOK_SQ.NEXTVAL, 'Spring frame','김작가',SYSDATE, 'noImg.png','noImg.png','스프링 프레임');
 INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG1, bINFO)
-    VALUES (BOOK_SQ.NEXTVAL, 'web programing','박작가',SYSDATE, 'noImg.png','웹프로그래밍');
+    VALUES (BOOK_SQ.NEXTVAL, 'web programing','박제이',SYSDATE, 'noImg.png','웹프로그래밍');
 INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG2, bINFO)
-    VALUES (BOOK_SQ.NEXTVAL, 'web','윤작가',SYSDATE, 'noImg.png','정적 웹');
+    VALUES (BOOK_SQ.NEXTVAL, 'web','윤길동',SYSDATE, 'noImg.png','정적 웹');
 INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bINFO)
-    VALUES (BOOK_SQ.NEXTVAL, '이것이 자바다','박자바',SYSDATE, 'OOP');
+    VALUES (BOOK_SQ.NEXTVAL, '이것이 JAVA다','박자바',SYSDATE, 'OOP');
     
 -- Book.xml id = modifyBook(책정보수정하기)
 UPDATE BOOK SET
     btitle='jsp servlet',
-    bwriter='최작가',
+    bwriter='최작자',
     brdate=sysdate,
     bimg1='noImg.png',
     bimg2='noImg.png',
