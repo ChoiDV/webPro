@@ -4,8 +4,8 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.lec.ch19.dto.Member" alias="Member"/>
-		<typeAlias type="com.lec.ch19.dto.Book" alias="Book"/>
+		<typeAlias type="com.lec.ch19sch.dto.Member" alias="Member"/>
+		<typeAlias type="com.lec.ch19sch.dto.Book" alias="Book"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="META-INF/sqlmap/mappers/Member.xml"/>
