@@ -23,8 +23,8 @@
 	</script>
 </head>
 <body>
-	<c:if test="${not empty result}">
-		<script>alert('${result}');</script>
+	<c:if test="${not empty joinResult}">
+		<script>alert('${mDto.mname}님 회원가입 성공하셨습니다. 메일로 감사쿠폰을 발송해 드렸습니다');</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content">

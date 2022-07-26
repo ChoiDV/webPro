@@ -49,6 +49,12 @@ public class MemberController {
 	public String modifyForm() {
 		return "member/modifyForm";
 	}
+	@RequestMapping(params = "method=modify", method= RequestMethod.POST)
+	public String modify(@ModelAttribute("mDto") Member member, HttpSession httpSession, Model model) {
+		model.addAttribute("modifyResult", memberService.modifyMember(member));
+		httpSession.setAttribute("member", member);
+		return "forward:main.do";
+	}
 }
 
 

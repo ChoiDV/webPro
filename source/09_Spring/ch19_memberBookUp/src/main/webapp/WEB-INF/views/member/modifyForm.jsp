@@ -22,9 +22,6 @@
 	</script>
 </head>
 <body>
-	<c:if test="${modifyResult==0 }">
-		<script> alert("정보 수정이 실패되었습니다");</script>
-	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content">
 	<form action="${conPath }/member.do" method="post">
