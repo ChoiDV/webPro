@@ -1,6 +1,7 @@
 package com.lec.ch19.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,5 +14,9 @@ public class MemberController {
 	@RequestMapping(params = "method=joinForm", method = RequestMethod.GET)
 	public String joinForm() {
 		return "member/joinForm";
+	}
+	@RequestMapping(params = "method=idConfirm", method = RequestMethod.GET)
+	public String idconfirm(String mid, Model model) {
+		
 	}
 }
