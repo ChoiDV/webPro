@@ -43,7 +43,6 @@ public class BookController {
 	@RequestMapping(params="method=modify", method = RequestMethod.POST)
 	public String modify(MultipartHttpServletRequest mRequest, @ModelAttribute("bDto") Book book, Model model, String pageNum) {
 		model.addAttribute("modifyResult", bookService.modifyBook(mRequest, book));
-		System.out.println("수정완료");
 		return "redirect:book.do?method=list&pageNum="+pageNum;
 	}
 }
