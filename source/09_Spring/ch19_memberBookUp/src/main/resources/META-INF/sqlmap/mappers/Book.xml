@@ -36,19 +36,19 @@
 	<insert id="registerBook" parameterType="Book">
 		<if test="bimg1=='' and bimg2!=''">
 			INSERT INTO BOOK (BNUM, BTITLE, BWRITER, BRDATE, BIMG2, BINFO) VALUES
-				(BOOK_SEQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate}, #{bimg2},#{binfo})
+				(BOOK_SQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate}, #{bimg2},#{binfo})
 		</if>
 		<if test="bimg1!='' and bimg2==''">
 			INSERT INTO BOOK (BNUM, BTITLE, BWRITER, BRDATE, BIMG1, BINFO) VALUES
-				(BOOK_SEQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate},#{bimg1},#{binfo})
+				(BOOK_SQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate},#{bimg1},#{binfo})
 		</if>
 		<if test="bimg1=='' and bimg2==''">
 			INSERT INTO BOOK (BNUM, BTITLE, BWRITER, BRDATE, BINFO) VALUES
-				(BOOK_SEQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate},#{binfo})
+				(BOOK_SQ.NEXTVAL,  #{btitle},#{bwriter},#{brdate},#{binfo})
 		</if>
 		<if test="bimg1!='' and bimg2!=''">
 			INSERT INTO BOOK VALUES
-			(BOOK_SEQ.NEXTVAL, #{btitle},#{bwriter},#{brdate}, #{bimg1},#{bimg2},#{binfo})
+			(BOOK_SQ.NEXTVAL, #{btitle},#{bwriter},#{brdate}, #{bimg1},#{bimg2},#{binfo})
 		</if>
 	</insert>
 	
