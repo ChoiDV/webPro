@@ -22,7 +22,7 @@ import com.lec.ch19.util.Paging;
 public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookDao bookDao;
-	String backupPath = "D:\\webPro\\src_home\\09_Spring\\ch19_memberBookUp\\src\\main\\webapp\\bookImgFileUpload\\";
+	String backupPath = "D:/webPro/source/09_Spring/ch19_memberBookUp/src/main/webapp/bookImgFileUpload/";
 	@Override
 	public List<Book> mainList() {
 		return bookDao.mainList();
