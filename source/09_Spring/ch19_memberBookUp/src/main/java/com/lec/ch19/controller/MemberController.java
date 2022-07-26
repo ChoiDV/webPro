@@ -36,7 +36,7 @@ public class MemberController {
 	@RequestMapping(params="method=login", method=RequestMethod.POST)
 	public String login(String mid, String mpw, HttpSession httpSession, Model model) {
 		model.addAttribute("loginResult",  memberService.loginCheck(mid, mpw, httpSession));
-		return "redirect:main.do";
+		return "forward:main.do";
 	}
 	@RequestMapping(params="method=modifyForm", method= {RequestMethod.GET, RequestMethod.POST})
 	public String modifyForm() {
@@ -54,9 +54,3 @@ public class MemberController {
 		return "redirect:main.do";
 	}
 }
-
-
-
-
-
-
