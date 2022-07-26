@@ -33,6 +33,22 @@ public class MemberController {
 	public String loginForm() {
 		return "member/loginForm";
 	}
+	@RequestMapping(params="method=login", method=RequestMethod.POST)
+	public String login(String mid, String mpw, HttpSession httpSession, Model model) {
+		String result = memberService.loginCheck(mid, mpw, httpSession);
+		if(result.equals("로그인 성공")) {
+			return "redirect:main.do";
+		}else {
+			model.addAttribute("mid", mid);
+			model.addAttribute("mpw", mpw);
+			model.addAttribute("result", result);
+			return "forward:member.do?method=loginForm";
+		}
+	}
+	@RequestMapping(params="method=modifyForm", method= {RequestMethod.GET, RequestMethod.POST})
+	public String modifyForm() {
+		return "member/modifyForm";
+	}
 }
 
 
