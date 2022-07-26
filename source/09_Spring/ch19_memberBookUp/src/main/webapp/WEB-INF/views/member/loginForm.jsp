@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="conPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -10,24 +10,15 @@
 	<title>Insert title here</title>
 	<link href="${conPath }/css/style.css" rel="stylesheet">
 	<style>
-		#content {
-			width: 800px; height:350px;
-			margin: 50px auto;
-		}
+		#content {width: 800px; height:350px;margin: 50px auto;}
 	</style>
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	<script>
-		$(document).ready(function(){
-			
-		});
-	</script>
 </head>
 <body>
-	<c:if test="${not empty joinResult}">
-		<script>alert('${mDto.mname}님 회원가입 성공하셨습니다. 메일로 감사쿠폰을 발송해 드렸습니다');</script>
+	<c:if test="${joinResult == 1}">
+		<script>alert('회원가입이 완료되었습니다');</script>
 	</c:if>
-	<c:if test="${not empty loginResult}">
-		<script>alert('loginResult');</script>
+	<c:if test="${not empty result}">
+		<script>alert('${result}');</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content">

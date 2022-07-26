@@ -21,9 +21,6 @@
 	<c:if test="${not empty modifyResult }">
 		<script> alert("정보 수정이 돤료 되었습니다");</script>
 	</c:if>
-	<c:if test="${loginResult != '로그인 성공' }">
-		<script>history.back();</script>
-	</c:if>
 	<jsp:include page="header.jsp"/>
 	<div id="content">
 		<table>

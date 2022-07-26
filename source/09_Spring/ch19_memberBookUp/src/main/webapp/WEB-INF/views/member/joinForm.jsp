@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="conPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -16,27 +16,27 @@
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script src="${conPath }/js/address.js"></script>
 	<script>
-	$(document).ready(function(){
-		$('.idconfirm').click(function(){
-			$.ajax({
-				url : '${conPath}/member.do',
-				datatype : 'html',
-				data : "method=idConfirm&mid="+$('#mid').val(),
-				success : function(data, status){
-					$('#idConfirmMsg').html(data);
+		$(document).ready(function(){
+			$('.idconfirm').click(function(){
+				$.ajax({
+					url : '${conPath}/member.do',
+					datatype : 'html',
+					data : 'method=idConfirm&mid='+$('#mid').val(),
+					success : function(data, status){
+						$('#idConfirmMsg').html(data);
+					}
+				});
+			});// ajax
+			$('form').submit(function(){
+				var idConfirmResult = $('#idConfirmMsg').text().trim();
+				if(idConfirmResult != '사용가능한 ID입니다'){
+					alert('사용가능한 ID인지중복확인 후 가입가능');
+					$('input[name="mid"]').focus();
+					return false;
 				}
 			});
 		});
-		$('form').submit(function(){
-			var idConfirmResult = $('#idConfirmMsg').text().trim();
-			if(idConfirmResult!='사용가능한 ID입니다'){
-				alert('사용가능한 ID인지 중복확인후 가입가능');
-				$('input[name="mid"]').focus();
-				return false;
-			}
-		});
-	});
-</script>
+	</script>
 </head>
 <body>
 	<jsp:include page="../main/header.jsp"/>
@@ -51,9 +51,9 @@
 					<span id="idConfirmMsg"></span>
 				</td>
 			</tr>
-			<tr><td>비밀번호</td><td><input type="password" name="mpw" required="required"></td></tr>
-			<tr><td>이름</td><td><input type="text" name="mname"  required="required"></td></tr>
-			<tr><td>메일</td><td><input type="text" name="mmail"  required="required"></td></tr>
+			<tr><td>비밀번호</td><td><input type="password" name="mpw"></td></tr>
+			<tr><td>이름</td><td><input type="text" name="mname"></td></tr>
+			<tr><td>메일</td><td><input type="text" name="mmail"></td></tr>
 			<tr>
 				<td>우편번호</td>
 				<td>
