@@ -46,7 +46,7 @@ INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bINFO)
 -- Book.xml id = modifyBook(책정보수정하기)
 UPDATE BOOK SET
     btitle='jsp servlet',
-    bwriter='최작자',
+    bwriter='최작가',
     brdate=sysdate,
     bimg1='noImg.png',
     bimg2='noImg.png',

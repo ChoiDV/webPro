@@ -22,7 +22,7 @@ public class BookController {
 	@RequestMapping(params="method=register", method=RequestMethod.POST)
 	public String register(MultipartHttpServletRequest mRequest, Book book, Model model) {
 		model.addAttribute("registerResult", bookService.registerBook(mRequest, book));
-		return "redirect:book.do?method=list";
+		return "redirect:book.do?method=registerForm";
 	}
 	@RequestMapping(params="method=list", method= {RequestMethod.GET, RequestMethod.POST})
 	public String list(String pageNum, Model model) {
