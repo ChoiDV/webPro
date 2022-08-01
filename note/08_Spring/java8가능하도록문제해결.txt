@@ -1,0 +1,13 @@
+https://wooncloud.tistory.com/48
+
+1. 바로가기추가 STS.exe -clean으로
+2.
+-Dosgi.requiredJavaVersion=11 을
+-Dosgi.requiredJavaVersion=1.8 로 변경했습니다.
+
+3.맨위에 아래의 내용을 추가합니다.
+-vm 
+C:\Program Files\Java\jdk1.8.0_321\bin\javaw.exe
+
+4.
+-Dfile.encoding=utf-8
