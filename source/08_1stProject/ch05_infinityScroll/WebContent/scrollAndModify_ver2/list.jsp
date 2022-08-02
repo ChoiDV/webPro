@@ -20,9 +20,6 @@
 				var addr = $('#addr'+no).text();
 				open('${conPath}/scrollAndModify_ver2/modify.jsp?no='+no+'&name='+name+'&tel='+tel+'&addr='+addr, '','width=800,height=50,left=500, top=200');
 			});
-			$('#test').click(function(){
-				location.reload(); // 수정
-			});
 		});
 	</script>
 	<script>
@@ -108,6 +105,5 @@
 	</table>
 	<div id="appendDiv"></div>
 	<button class="append">더보기 <img src="${conPath }/img/down_arrow.png"> </button>
-	<button id="test">테스트 클릭</button>
 </body>
 </html>
