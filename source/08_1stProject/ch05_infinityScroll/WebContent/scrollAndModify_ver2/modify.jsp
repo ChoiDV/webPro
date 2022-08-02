@@ -11,9 +11,9 @@
 	<script>
 		$(document).ready(function(){
 			$('input[type="button"]').click(function(){
-				opener.document.getElementById('name${param.no}').innerHTML = $('input[name="name"]').val();
+				/* opener.document.getElementById('name${param.no}').innerHTML = $('input[name="name"]').val();
 				opener.document.getElementById('tel${param.no}').innerHTML = $('input[name="tel"]').val();
-				opener.document.getElementById('addr${param.no}').innerHTML = $('input[name="addr"]').val();
+				opener.document.getElementById('addr${param.no}').innerHTML = $('input[name="addr"]').val(); */
 				$('form').submit();
 			});
 		});

@@ -8,7 +8,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
 	window.onload = function(){
-		close();
+		opener.document.getElementById('test').click();
+		close();		
 	};
 	</script>
 </head>

@@ -12,7 +12,18 @@
 	</style>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
-		
+		$(document).ready(function(){
+			$('.modify').click(function(){
+				var no = $(this).attr('id');
+				var name = $('#name'+no).text();
+				var tel = $('#tel'+no).text();
+				var addr = $('#addr'+no).text();
+				open('${conPath}/scrollAndModify_ver2/modify.jsp?no='+no+'&name='+name+'&tel='+tel+'&addr='+addr, '','width=800,height=50,left=500, top=200');
+			});
+			$('#test').click(function(){
+				location.reload(); // 수정
+			});
+		});
 	</script>
 	<script>
 		var pageNum;
@@ -23,7 +34,7 @@
 				alert('PAGESIZE인 5이하 갯수만 있으면 더보기 버튼 안 나옴');
 				$('button.append').css('display','none');
 			}
-			$('button').click(function(){
+			$('button.append').click(function(){
 				pageNum = Number($('.pageNum').last().val());
 				if(isNaN(pageNum)){
 					pageNum=1;
@@ -97,5 +108,6 @@
 	</table>
 	<div id="appendDiv"></div>
 	<button class="append">더보기 <img src="${conPath }/img/down_arrow.png"> </button>
+	<button id="test">테스트 클릭</button>
 </body>
 </html>
