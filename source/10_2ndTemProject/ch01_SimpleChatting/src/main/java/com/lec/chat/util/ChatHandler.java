@@ -1,4 +1,4 @@
-package com.lec.chat;
+package com.lec.chat.util;
 
 import java.util.ArrayList;
 import java.util.List;
