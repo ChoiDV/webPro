@@ -42,12 +42,9 @@ public class LoginController {
 		@RequestMapping(value = "/callback", method = { RequestMethod.GET, RequestMethod.POST })
 		public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
 			
-			System.out.println("여기는 callback");
 			OAuth2AccessToken oauthToken;
 	        oauthToken = naverLoginBO.getAccessToken(session, code, state);
-	 
 			apiResult = naverLoginBO.getUserProfile(oauthToken);  //String형식의 json데이터
-			
 			
 			//2. String형식인 apiResult를 json형태로 바꿈
 			JSONParser parser = new JSONParser();
@@ -59,14 +56,16 @@ public class LoginController {
 			JSONObject response_obj = (JSONObject)jsonObj.get("response");
 			//response의 nickname값 파싱
 			String nickname = (String)response_obj.get("nickname");
-	 
+			String username = (String)response_obj.get("username");
 			System.out.println(nickname);
 			
 			//4.파싱 닉네임 세션으로 저장
 			session.setAttribute("sessionId",nickname); //세션 생성
 			
 			model.addAttribute("result", apiResult);
-		     
+			System.out.println("username : " + username);
+		    System.out.println("nickname : " + nickname);
+		    System.out.println("apiResult : " + apiResult);
 			return "login";
 		}
 		
