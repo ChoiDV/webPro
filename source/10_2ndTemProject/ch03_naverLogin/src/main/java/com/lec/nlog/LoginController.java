@@ -56,14 +56,14 @@ public class LoginController {
 			JSONObject response_obj = (JSONObject)jsonObj.get("response");
 			//response의 nickname값 파싱
 			String nickname = (String)response_obj.get("nickname");
-			String username = (String)response_obj.get("username");
-			System.out.println(nickname);
+			String name = (String)response_obj.get("name");
+			String id = (String)response_obj.get("id"); // API 호출 결과로 네이버 아이디값은 제공하지 않으며, 대신 'id'라는 애플리케이션당 유니크한 일련번호값을 이용해서 자체적으로 회원정보를 구성하셔야 합니다.
 			
 			//4.파싱 닉네임 세션으로 저장
-			session.setAttribute("sessionId",nickname); //세션 생성
+			session.setAttribute("sessionId",name+"("+nickname+" ; "+id+")"); //세션 생성
 			
 			model.addAttribute("result", apiResult);
-			System.out.println("username : " + username);
+			System.out.println("name : " + name);
 		    System.out.println("nickname : " + nickname);
 		    System.out.println("apiResult : " + apiResult);
 			return "login";
