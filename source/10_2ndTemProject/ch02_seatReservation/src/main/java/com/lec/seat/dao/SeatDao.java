@@ -1,4 +1,4 @@
-package com.lec.ch17.dao;
+package com.lec.seat.dao;
 
 import java.util.List;
 

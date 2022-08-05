@@ -10,7 +10,7 @@
 	<title>Insert title here</title>
 	<link href="${conPath }/css/style.css" rel="stylesheet">
 	<style>
-		/*input[type="checkbox"] {display: none;}*/
+		input[type="checkbox"] {display: none;}
 	</style>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
@@ -18,11 +18,9 @@
 			$('input[type="checkbox"]').click(function(){
 				var seatId = $(this).attr('id');
 				var checked = $(this).is(':checked');
-				if(checked){
-					alert('체크 했');
+				if(checked){ // 체크함
 					$('.img'+seatId).attr('src','${conPath }/img/checked.png');
-				}else {
-					alert('체크 풀었군');
+				}else { // 언체크함
 					$('.img'+seatId).attr('src','${conPath }/img/on.png');
 				}
 			});
@@ -31,7 +29,6 @@
 	</script>
 </head>
 <body>
-${seatDbList }
 	<form action="${conPath }/resultReservation.do">
 		<input type="hidden" name="mid" value="${member.mid }">
 		<c:forEach var="i" begin="0" end="9">

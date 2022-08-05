@@ -1,4 +1,4 @@
-package com.lec.ch17.controller;
+package com.lec.seat.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,14 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lec.ch17.dao.SeatDao;
+import com.lec.seat.dao.SeatDao;
 @Controller
 public class SeatController {
 	@Autowired
 	private SeatDao dao;
 	@RequestMapping(value="reservation")
 	public String reservation(Model model) {
-		
+		// 서비스단에서 할 것 추천
 		ArrayList<String> seatDbList = (ArrayList<String>) dao.seatList();
 		ArrayList<String> seats = new ArrayList<String>();
 		for(int i=0 ; i<10 ; i++) {
@@ -27,7 +27,6 @@ public class SeatController {
 				seats.add("");
 			}
 		}
-		model.addAttribute("seatDbList", seatDbList);
 		model.addAttribute("seats", seats);
 		return "seatReservation";
 	}
