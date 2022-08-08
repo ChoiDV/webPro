@@ -45,10 +45,10 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="member.exerd" partName="member.exerd" path="D:/webPro/source/03_exERD/newProject/member.exerd" title="member.exerd" tooltip="newProject/member.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/member.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="데이터베이스구현평가.exerd" partName="데이터베이스구현평가.exerd" path="D:/webPro/source/03_exERD/newProject/데이터베이스구현평가.exerd" title="데이터베이스구현평가.exerd" tooltip="newProject/데이터베이스구현평가.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="데이터베이스구현평가.exerd" partName="데이터베이스구현평가.exerd" path="D:/webPro/source/03_exERD/newProject/데이터베이스구현평가.exerd" title="데이터베이스구현평가.exerd" tooltip="newProject/데이터베이스구현평가.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/데이터베이스구현평가.exerd"/>
 </editor>
-<editor id="com.tomato.exerd.editor.DiagramEditor" name="shoppingmall.exerd" partName="shoppingmall.exerd" path="D:/webPro/source/03_exERD/newProject/shoppingmall.exerd" title="shoppingmall.exerd" tooltip="newProject/shoppingmall.exerd" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="shoppingmall.exerd" partName="shoppingmall.exerd" path="D:/webPro/source/03_exERD/newProject/shoppingmall.exerd" title="shoppingmall.exerd" tooltip="newProject/shoppingmall.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/shoppingmall.exerd"/>
 </editor>
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="dept_emp.exerd" partName="dept_emp.exerd" path="D:/webPro/source/03_exERD/newProject/dept_emp.exerd" title="dept_emp.exerd" tooltip="newProject/dept_emp.exerd" workbook="DefaultEditorWorkbook">
@@ -168,6 +168,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/student.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/shoppingmall.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/book.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/데이터베이스구현평가.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/shoppingmall.exerd"/>
 </editors>
 <item historyLabel="dept_emp.exerd" index="0"/>
 <item historyLabel="book.exerd" index="1"/>
@@ -198,7 +200,9 @@
 <item historyLabel="shoppingmall.exerd" index="11"/>
 <item historyLabel="student.exerd" index="10"/>
 <item historyLabel="shoppingmall.exerd" index="11"/>
-<item active="true" historyLabel="book.exerd" index="12"/>
+<item historyLabel="book.exerd" index="12"/>
+<item historyLabel="데이터베이스구현평가.exerd" index="13"/>
+<item active="true" historyLabel="shoppingmall.exerd" index="14"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
