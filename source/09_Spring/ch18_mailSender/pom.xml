@@ -122,7 +122,12 @@
 		    <artifactId>mail</artifactId>
 		    <version>1.4.7</version>
 		</dependency>
-		        
+		<!-- springframework-version을 4.x.x.RELEASE로 할 경우 추가
+		 <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>    -->   
 	</dependencies>
     <build>
         <plugins>
