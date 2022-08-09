@@ -67,7 +67,7 @@
         }
 				// 예약된 시간은 disabled
         $(timeList).each(function(idx, item){
-        	if(item.rdate == todayString){
+        	if(item.rdate == dateText){
         		for (var i = 6; i <= 23; i++) {
         	  	if(item.rtime == i){
         	  		$('#' + i).attr('disabled', 'disabled');
