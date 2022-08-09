@@ -101,6 +101,7 @@
   </script>
 </head>
 <body>
+${timeList}
 <br>
   <div id="datepicker"></div>
   <form>
