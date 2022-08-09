@@ -6,6 +6,6 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<jsp:forward page="reservation.do"/>	
+	<jsp:forward page="timeReservation.do"/>	
 </body>
 </html>

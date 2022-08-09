@@ -13,8 +13,8 @@ import com.lec.seat.dao.SeatDao;
 public class SeatController {
 	@Autowired
 	private SeatDao dao;
-	@RequestMapping(value="reservation")
-	public String reservation(Model model) {
+	@RequestMapping(value="seatReservation")
+	public String seatReservation(Model model) {
 		// 서비스단에서 할 것 추천
 		ArrayList<String> seatDbList = (ArrayList<String>) dao.seatList();
 		ArrayList<String> seats = new ArrayList<String>();
