@@ -10,7 +10,7 @@ CREATE TABLE MEMBER(
 -- join
 INSERT INTO MEMBER 
     VALUES ('aaa','1','홍길동','06129',
-    '서울 강남구 강남대로94길 13 (역삼동)','좋은 빌딩 403호');
+    '서울 강남구 강남대로94길 13 (역삼동)','삼경 빌딩 403호');
 -- list
 SELECT * FROM MEMBER;
 commit;

@@ -2,6 +2,7 @@ package com.lec.alist.controller;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,7 +20,11 @@ public class MemberController {
 		return list;
 	}
 	@RequestMapping("input")
-	public String input() {
+	public String input(Model model) {
+		ArrayList<String> test = new ArrayList<String>();
+		test.add("하");
+		test.add("호");
+		model.addAttribute("test", test);
 		return "member/input";
 	}
 	@RequestMapping("join6")

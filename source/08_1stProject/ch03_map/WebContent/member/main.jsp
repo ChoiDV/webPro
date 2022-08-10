@@ -17,7 +17,7 @@
 	<hr>
 	
 	<div id="map" style="width:90%;height:500px;margin:0 auto;"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4c3b3a0a6b54af370ecb2b23f6ddcdf0&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f17825320e8c5e73cadec1b017e631bb&libraries=services"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {

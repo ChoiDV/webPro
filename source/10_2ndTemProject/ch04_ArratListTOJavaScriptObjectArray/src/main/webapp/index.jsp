@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="member/input"></jsp:forward>
+	<jsp:forward page="member/input"/>
 </body>
 </html>

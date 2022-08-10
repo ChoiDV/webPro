@@ -15,11 +15,14 @@
 			$(list).each(function(idx, item){
 				alert('이름은 '+item.name +',아이디는' + item.id + ', 비번은 ' + item.pw);
 			});
+			var test = ${test};
+			alert(test);
 		});
 	</script>
 </head>
 <body>
-	<h3>list : ${list }</h3>
+	<h3>list(DTO ArrayList) : ${list }</h3>
+	<h3>test(String ArrayList) : ${test }</h3>
 	<hr>
 	<form action="${conPath }/member/join6">
 		<table>
