@@ -20,7 +20,7 @@ import com.tj.ck.dto.FileUpVO;
 public class BServiceImpl implements BService {
 	@Autowired
 	private BDao bDao;
-	private String backupPath = "D:\\temp\\2ndProject_sts3\\test01_ckeditor\\src\\main\\webapp\\fileUp\\"; 
+	private String backupPath = "D:\\webPro\\source\\10_2ndTemProject\\ch05_ckeditor\\src\\main\\webapp\\fileUp\\"; 
 	@Override
 	public List<B> list(B b, String pageNum, Model model) {
 		Paging paging = new Paging(bDao.cnt(b), pageNum);

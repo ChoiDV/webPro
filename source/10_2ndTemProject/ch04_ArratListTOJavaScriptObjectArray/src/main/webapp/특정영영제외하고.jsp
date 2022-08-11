@@ -23,6 +23,7 @@
 				}
 			});
 		});
+		open('jQueryUITest.jsp', '','width=300, height=100, resizable=no');
 	</script>
 </head>
 <body>
