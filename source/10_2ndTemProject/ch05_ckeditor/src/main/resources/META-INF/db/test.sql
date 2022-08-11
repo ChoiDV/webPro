@@ -38,3 +38,4 @@ delete from b where bno=2;
 rollback;
 -- 갯수
 SELECT COUNT(*) FROM B WHERE BTITLE LIKE '%'||'제'||'%' ;
+SELECT * FROM B;
