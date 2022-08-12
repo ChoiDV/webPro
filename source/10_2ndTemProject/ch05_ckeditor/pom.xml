@@ -122,13 +122,13 @@
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>5.2.8.RELEASE</version>
 		</dependency>
-     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+     	<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
 		    <version>3.5.5</version>
 		</dependency>
-    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+   		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
