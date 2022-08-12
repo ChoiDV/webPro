@@ -16,20 +16,19 @@
 			});
 		});
 		function comma1(x) {
-			x = x+'';
 			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 		function comma2(x) {
 			x = x+'';
 			var tempStr = '';
-		  var len = x.length;
-		  for(var i=0 ; i<len ; i++){
-			  tempStr += x[i];
-			  if(((len-i-1)%3 == 0) && (i!=(len-1))){
-				  tempStr += ",";
-			  }
-		  }
-		  return tempStr;
+		  	var len = x.length;
+			  for(var i=0 ; i<len ; i++){
+				tempStr += x[i];
+				if(((len-i-1)%3 == 0) && (i!=(len-1))){
+					tempStr += ",";
+			  	}
+		  	}
+			return tempStr;
 		}
 	</script>
 </head>
