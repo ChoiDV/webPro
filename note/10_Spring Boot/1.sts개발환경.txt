@@ -1,3 +1,13 @@
+- Spring Boot 수업 차례
+(1) maven 라이브러리 - sts4
+
+(2) gradle 라이브러리 - 인텔리J
+    cf)젯브레인社 - 인텔리J(자바, 스프링 개발)
+                      - pyCharm (python 웹 개발)
+                      - 안드로이드 스튜디오(코틀린)
+
+
+
 0. Java install
 1. sts4 Download
 2. IDE 폴더에 옮김
