@@ -24,7 +24,7 @@
 
 6. 프로젝트 생성
 (1) ch01_helloMaven
-    dependency : spring web / Lombok / Spring Boot DevTools
+    dependency : spring web / Lombok / Spring Boot DevTools / thymeleaf
 
 ★ pom.xml에 dependency 추가
 		<!-- 톰캣 -->
