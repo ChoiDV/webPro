@@ -4,4 +4,4 @@
 
 > 또는 
 
-* <https://url.kr/cpus9r>
+	* <https://url.kr/cpus9r>
