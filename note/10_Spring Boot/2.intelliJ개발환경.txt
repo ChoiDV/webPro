@@ -1,0 +1,66 @@
+1. 프로젝트 생성 : 스타터 사이트로 이동해서 스프링 프로젝트 생성 https://start.spring.io
+   프로젝트 선택
+	Project : gradle Project(라이브러리 툴)
+	Spring Boot : 2.6.x (SNAPSHOT은 만들고있는 버전.M1은 아직 릴리즈전)
+	Language : Java
+	Packaging : Jar
+	Java : 8
+      	Dependencies : Spring Web, Thymeleaf(타임리프 템플릿 엔진VIew), Lombok, spring-boot-devtools 
+
+2. 인텔리J에서 build.gradle로 open as Project
+3.  settings > Build,Execution,Deployment > BuildTools > Gradle > Build and run using과 Run Tests using을 IntelliJ로 바꾸면 속도가 조금 빠름
+
+4. 라이브러리 살펴보기
+	Gradle은 의존관계가 있는 라이브러리를 함께 다운로드한다.
+	- Spring boot 라이브러리
+	Spring-boot-starter-web
+		spring-boot-start-tomcat : 톰캣(웹서버)
+		Spring-webmvc : 스프링 웹 MVC
+	Spring-boot-starter-thymeleaf : 타임리프 템플릿 엔진(View)
+	Spring-boot-starter(공통) :스프링 부트 + 스프링 코어 +로깅
+		Spring-boot
+			Spring-core
+		Spring-boot-start-logging
+			logback, slf4j
+	- 테스트 라이브러리
+	Spring-boot-starter-test
+		junit : 테스트 프레임워크
+		mockito : 목 라이브러리
+		assertj : 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리
+		Spring-test : 스프링 통합 테스트 지원
+
+6. https://docs.spring.io/spring-boot/docs/2.6.10/reference/html/web.html#web(reference docs 검색)
+
+7. index.html소스
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello, Spring Boot</h1>
+    <a href="/hello">hello</a>
+</body>
+</html>
+
+hello.html소스
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p th:text="'안녕하세요. ' + ${data}">안녕하세요, 손님</p>
+</body>
+</html>
+
+8. 참고 : spring-boot-devtools 라이브러리를 추가하면 'html' 파일을 컴파일만 해주면 서버 재시작 없이 View 파일 변경이 가능하다.
+      (인텔리J 컴파일 방법 : build > Recompile)
+9. 빌드하기 (콘솔 이동)
+   gradlew.bat build 실행
+    cd build/libs
+    java -jar hello-spring-0.0.1-SNAPSHOT.jar
+   잘 안 되면 : gradlew.bat clean
+   실행확인
