@@ -31,34 +31,144 @@
 
 6. https://docs.spring.io/spring-boot/docs/2.6.10/reference/html/web.html#web(reference docs 검색)
 
-7. index.html소스
+
+7. domain
+@Data
+public class Member {
+    private int no;
+    private String name;
+}
+
+
+8. repository
+//@Repository
+public class MemberRepository {
+    private static List<Member> store = new ArrayList<Member>();
+    private static int cnt;
+    public void save(Member member){
+        member.setNo(++cnt);
+        store.add(member);
+    }
+    public List<Member> list(){
+        return store;
+    }
+    public void clear(){
+        store.clear();
+    }
+}
+
+9. service
+//@Service
+public class MemberService {
+    @Autowired
+    private MemberRepository memberRepository;
+    public void save(Member member){
+        memberRepository.save(member);
+    }
+    public List<Member> list(){
+        return memberRepository.list();
+    }
+}
+
+10. Bean 생성(Java 파일로 Bean 생성)
+@Configuration
+public class SpringConfig {
+    @Bean
+    public MemberRepository memberRepository(){
+        return new MemberRepository();
+    }
+    @Bean
+    public MemberService memberService(){
+        return new MemberService();
+    }
+}
+
+11. Controller
+@Controller
+public class MemberController {
+    @Autowired
+    private MemberService memberService;
+
+    @GetMapping("/")
+    public String index(Model model){
+        model.addAttribute("greeting", "안녕하세요. 회원기능입니다");
+        return "home";
+    }
+    @GetMapping("/join")
+    public String joinView(){
+        return "member/joinForm";
+    }
+    @PostMapping("/join")
+    public String join(Member member){
+        memberService.save(member);
+        return "redirect:/";
+    }
+    @GetMapping("/list")
+    public String list(Model model){
+        model.addAttribute("memberList", memberService.list());
+        return "member/list";
+    }
+}
+12. view단
+(1) home.html소스
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <h1>Hello, Spring Boot</h1>
-    <a href="/hello">hello</a>
+    <h1 th:text="${greeting}">Hello, Spring</h1>
+    <p>
+        <a href="/join">회원가입</a>
+        <a href="/list">회원목록</a>
+    </p>
 </body>
 </html>
-
-hello.html소스
+(2) joinForm.html
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-  <p th:text="'안녕하세요. ' + ${data}">안녕하세요, 손님</p>
+    <form action="/join" method="post">
+        <input type="text" name="name" placeholder="이름을 입력하세요">
+        <input type="submit" value="등록">
+        <input type="button" value="목록" onclick="location.href='/list'">
+    </form>
+</div>
 </body>
 </html>
-
-8. 참고 : spring-boot-devtools 라이브러리를 추가하면 'html' 파일을 컴파일만 해주면 서버 재시작 없이 View 파일 변경이 가능하다.
+(3) list.html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <table>
+    <tbody>
+    <tr><td colspan="2"><a href="/join">회원가입</a></td> </tr>
+      <tr><th>#</th><th>이름</th></tr>
+    </tbody>
+    <tbody>
+      <tr th:if="${memberList.size()==0}"><td colspan="2"><b>등록된 회원이 없습니다</b></td> </tr>
+      <tr th:each="member : ${memberList}">
+        <td th:text="${member.no}">#</td>
+        <td th:text="${member.name}">name</td>
+      </tr>
+      <tr th:unless="${memberList.size()==0}"><td colspan="2" th:text="'이상 &nbsp; '+${memberList.size()}+'명'"></td> </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+13. 참고 : spring-boot-devtools 라이브러리를 추가하면 'html' 파일을 컴파일만 해주면 서버 재시작 없이 View 파일 변경이 가능하다.
       (인텔리J 컴파일 방법 : build > Recompile)
-9. 빌드하기 (콘솔 이동)
+14. 빌드하기 (콘솔 이동)
    gradlew.bat build 실행
     cd build/libs
     java -jar hello-spring-0.0.1-SNAPSHOT.jar
